@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 245, 245, 245;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer components {
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold mb-6 text-primary;
+  }
+  
+  .section-container {
+    @apply max-w-4xl mx-auto py-10 px-4;
+  }
+  
+  .timeline-item {
+    @apply mb-8 relative pl-6 border-l-2 border-gray-300;
+  }
+  
+  .timeline-item::before {
+    content: '';
+    @apply absolute w-4 h-4 rounded-full bg-primary -left-[9px] top-1;
+  }
+  
+  .timeline-date {
+    @apply text-sm font-medium text-gray-600 mb-1;
+  }
+  
+  .timeline-title {
+    @apply text-xl font-bold mb-2;
+  }
+  
+  .timeline-subtitle {
+    @apply text-base font-medium text-gray-700 mb-2;
+  }
+  
+  .timeline-content {
+    @apply text-gray-700;
+  }
+  
+  .skill-tag {
+    @apply px-3 py-1 rounded-full bg-gray-200 text-gray-800 font-medium text-sm mr-2 mb-2;
+  }
+  
+  .contact-item {
+    @apply flex items-center mb-4;
+  }
+  
+  .contact-icon {
+    @apply w-6 h-6 mr-3 text-primary;
+  }
+}
