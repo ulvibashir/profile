@@ -34,8 +34,8 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' })
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
-    } catch (_) {
-      // Using underscore to indicate unused variable
+    } catch {
+      // No parameter needed
       setError('Something went wrong. Please try again later.')
     } finally {
       setIsSubmitting(false)
