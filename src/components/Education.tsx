@@ -38,7 +38,7 @@ const Education = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="section-title text-center mb-12">Education & Certifications</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-12">Education & Certifications</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div>

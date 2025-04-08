@@ -13,10 +13,10 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
             <span className="text-primary">Ismat</span> Samadov
           </h1>
-          <h2 className="text-xl md:text-2xl font-medium mb-6 text-gray-700">
+          <h2 className="text-xl sm:text-2xl font-medium mb-6 text-gray-700">
             Data & Fraud Analytics Professional
           </h2>
           <p className="text-gray-600 mb-8 text-lg max-w-2xl mx-auto">

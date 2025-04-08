@@ -1,29 +1,35 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { FaGraduationCap } from 'react-icons/fa'
 
-const skillsData = [
-  { 
-    category: "Data Analysis",
-    skills: ["SQL", "Python", "Data Visualization", "Statistical Analysis", "Excel"]
+const educationData = [
+  {
+    institution: 'Azerbaijan State University of Economics',
+    degree: 'Master',
+    field: 'Artificial Intelligence',
+    period: 'Current'
   },
-  { 
-    category: "Fraud Prevention",
-    skills: ["Risk Assessment", "Fraud Detection", "Transaction Monitoring", "Compliance", "Investigation"]
-  },
-  { 
-    category: "Business Intelligence",
-    skills: ["Reporting", "Dashboard Development", "KPI Tracking", "Data Mining", "Trend Analysis"]
-  },
-  { 
-    category: "Technical",
-    skills: ["Oracle Database", "Data Engineering", "Data Science", "Predictive Modeling", "Process Automation"]
+  {
+    institution: 'Mingachevir State University',
+    degree: 'Bachelor',
+    field: 'Management of Industry',
+    period: '2012 - 2016'
   }
 ]
 
-const Skills = () => {
+const certificationData = [
+  {
+    title: 'Oracle Database SQL Certified Associate',
+    issuer: 'Oracle',
+    id: '290631207OCASQL12C',
+    date: 'May 2022'
+  }
+]
+
+const Education = () => {
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -32,69 +38,102 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="section-title text-center mb-12">Skills & Expertise</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-12">Education & Certifications</h2>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {skillsData.map((category, index) => (
-              <SkillCategory 
-                key={index}
-                category={category.category}
-                skills={category.skills}
-                index={index}
-              />
-            ))}
+            <div>
+              <h3 className="text-xl font-bold mb-6 flex items-center">
+                <FaGraduationCap className="mr-2 text-primary" />
+                Education
+              </h3>
+              <div className="space-y-8">
+                {educationData.map((edu, index) => (
+                  <EducationItem 
+                    key={index}
+                    institution={edu.institution}
+                    degree={edu.degree}
+                    field={edu.field}
+                    period={edu.period}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-xl font-bold mb-6 flex items-center">
+                <svg className="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                Certifications
+              </h3>
+              <div className="space-y-8">
+                {certificationData.map((cert, index) => (
+                  <CertificationItem 
+                    key={index}
+                    title={cert.title}
+                    issuer={cert.issuer}
+                    id={cert.id}
+                    date={cert.date}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-16 text-center"
-          >
-            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Passionate about leveraging data to identify patterns, prevent fraud, and drive 
-              business decisions through actionable insights and predictive modeling.
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </section>
   )
 }
 
-interface SkillCategoryProps {
-  category: string
-  skills: string[]
+interface EducationItemProps {
+  institution: string
+  degree: string
+  field: string
+  period: string
   index: number
 }
 
-const SkillCategory = ({ category, skills, index }: SkillCategoryProps) => {
+const EducationItem = ({ institution, degree, field, period, index }: EducationItemProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-gray-50 rounded-lg p-6 shadow-sm"
+      className="bg-white rounded-lg shadow-md p-6"
     >
-      <h3 className="text-lg font-bold mb-4 text-primary">{category}</h3>
-      <div className="flex flex-wrap">
-        {skills.map((skill, i) => (
-          <motion.span 
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: 0.1 + (i * 0.05) }}
-            className="skill-tag"
-          >
-            {skill}
-          </motion.span>
-        ))}
-      </div>
+      <h4 className="text-lg font-bold mb-1">{institution}</h4>
+      <p className="text-primary font-medium">{degree} • {field}</p>
+      <p className="text-gray-600 text-sm mt-2">{period}</p>
     </motion.div>
   )
 }
 
-export default Skills
+interface CertificationItemProps {
+  title: string
+  issuer: string
+  id: string
+  date: string
+  index: number
+}
+
+const CertificationItem = ({ title, issuer, id, date, index }: CertificationItemProps) => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-white rounded-lg shadow-md p-6"
+    >
+      <h4 className="text-lg font-bold mb-1">{title}</h4>
+      <p className="text-primary font-medium">{issuer}</p>
+      <p className="text-gray-600 text-sm mt-2">ID: {id}</p>
+      <p className="text-gray-600 text-sm">Issued: {date}</p>
+    </motion.div>
+  )
+}
+
+export default Education
