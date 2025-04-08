@@ -34,7 +34,8 @@ const Contact = () => {
       setFormData({ name: '', email: '', message: '' })
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
-    } catch (err) {
+    } catch (_) {
+      // Using underscore to indicate unused variable
       setError('Something went wrong. Please try again later.')
     } finally {
       setIsSubmitting(false)
@@ -86,8 +87,8 @@ const Contact = () => {
               
               <div className="mt-8">
                 <p className="text-gray-700">
-                  Feel free to reach out if you're looking for a data professional with experience in fraud detection
-                  and business intelligence. I'm open to new opportunities and collaborations.
+                  Feel free to reach out if you&apos;re looking for a data professional with experience in fraud detection
+                  and business intelligence. I&apos;m open to new opportunities and collaborations.
                 </p>
               </div>
             </div>
@@ -155,7 +156,7 @@ const Contact = () => {
                 
                 {isSubmitted && (
                   <p className="text-green-500 text-sm mt-2">
-                    Your message has been sent successfully! I'll get back to you soon.
+                    Your message has been sent successfully! I&apos;ll get back to you soon.
                   </p>
                 )}
               </form>
