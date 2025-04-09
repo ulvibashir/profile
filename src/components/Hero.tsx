@@ -1,7 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
+import { FaLinkedin, FaEnvelope, FaPhone, FaFileAlt } from 'react-icons/fa'
+import DownloadButton from './DownloadButton'
 
 const Hero = () => {
   return (
@@ -35,6 +36,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.6 }}
+            className="flex flex-wrap justify-center gap-4"
           >
             <a 
               href="#experience" 
@@ -42,6 +44,13 @@ const Hero = () => {
             >
               View My Experience
             </a>
+            
+            <DownloadButton 
+              filePath="/ISMAT SAMADOV.pdf"
+              label="Download CV"
+              className="py-3 px-6"
+              variant="secondary"
+            />
           </motion.div>
         </motion.div>
       </div>
