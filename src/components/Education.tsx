@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { FaGraduationCap } from 'react-icons/fa'
+import DownloadButton from './DownloadButton'
 
 const educationData = [
   {
@@ -23,7 +24,8 @@ const certificationData = [
     title: 'Oracle Database SQL Certified Associate',
     issuer: 'Oracle',
     id: '290631207OCASQL12C',
-    date: 'May 2022'
+    date: 'May 2022',
+    pdfUrl: '/OCA.pdf'
   }
 ]
 
@@ -75,6 +77,7 @@ const Education = () => {
                     issuer={cert.issuer}
                     id={cert.id}
                     date={cert.date}
+                    pdfUrl={cert.pdfUrl}
                     index={index}
                   />
                 ))}
@@ -116,10 +119,11 @@ interface CertificationItemProps {
   issuer: string
   id: string
   date: string
+  pdfUrl?: string
   index: number
 }
 
-const CertificationItem = ({ title, issuer, id, date, index }: CertificationItemProps) => {
+const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: CertificationItemProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -132,6 +136,16 @@ const CertificationItem = ({ title, issuer, id, date, index }: CertificationItem
       <p className="text-primary font-medium">{issuer}</p>
       <p className="text-gray-600 text-sm mt-2">ID: {id}</p>
       <p className="text-gray-600 text-sm">Issued: {date}</p>
+      
+      {pdfUrl && (
+        <div className="mt-4">
+          <DownloadButton 
+            filePath={pdfUrl}
+            label="Download Certificate"
+            variant="secondary"
+          />
+        </div>
+      )}
     </motion.div>
   )
 }
