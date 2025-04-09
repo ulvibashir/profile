@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaEnvelope, FaPhone, FaFileAlt } from 'react-icons/fa'
+import { FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 import DownloadButton from './DownloadButton'
 
 const Hero = () => {
