@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 import DownloadButton from './DownloadButton'
 
 const Hero = () => {
@@ -25,12 +24,6 @@ const Hero = () => {
             Skilled in developing predictive models and identifying business needs.
             Proficient in SQL and Python.
           </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <SocialLink href="https://az.linkedin.com/in/ismatsamadov" icon={<FaLinkedin />} label="LinkedIn" />
-            <SocialLink href="mailto:ismetsemedov@gmail.com" icon={<FaEnvelope />} label="Email" />
-            <SocialLink href="tel:+994504787463" icon={<FaPhone />} label="+994 50 478 7463" />
-          </div>
           
           <motion.div
             initial={{ opacity: 0 }}
@@ -58,22 +51,6 @@ const Hero = () => {
       {/* Background decorative elements */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}></div>
     </section>
-  )
-}
-
-const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => {
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 bg-white rounded-full py-2 px-5 shadow-md hover:shadow-lg transition-shadow"
-    >
-      <span className="text-primary text-lg">
-        {icon}
-      </span>
-      <span className="font-medium">{label}</span>
-    </a>
   )
 }
 
