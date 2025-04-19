@@ -7,6 +7,7 @@ interface PageSEOProps {
   path?: string;
   ogImage?: string;
   noIndex?: boolean;
+  alternateLanguages?: Record<string, string>; // Add support for hreflang
 }
 
 /**
@@ -17,7 +18,8 @@ export function generatePageMetadata({
   description,
   path = '',
   ogImage = '/og-image.jpg',
-  noIndex = false
+  noIndex = false,
+  alternateLanguages
 }: PageSEOProps): Metadata {
   // Base URL for production
   const baseUrl = 'https://ismatsamadov.com';
@@ -28,13 +30,25 @@ export function generatePageMetadata({
   // Full URL for this page
   const url = `${baseUrl}${pagePath}`;
   
+  // Construct alternates with language versions
+  const alternates: Record<string, any> = {
+    canonical: url,
+  };
+  
+  // Add language alternates if provided
+  if (alternateLanguages) {
+    const languages: Record<string, string> = {};
+    Object.entries(alternateLanguages).forEach(([lang, langPath]) => {
+      languages[lang] = `${baseUrl}${langPath}`;
+    });
+    alternates.languages = languages;
+  }
+  
   return {
     title,
     description,
     metadataBase: new URL(baseUrl),
-    alternates: {
-      canonical: url,
-    },
+    alternates,
     openGraph: {
       title,
       description,
@@ -61,6 +75,9 @@ export function generatePageMetadata({
       googleBot: {
         index: !noIndex,
         follow: !noIndex,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
       },
     },
     keywords: [
@@ -75,10 +92,14 @@ export function generatePageMetadata({
       'Python Developer',
       'SQL Expert',
       'Financial Analytics',
+      'Predictive Analytics',
+      'Azure ML',
+      'Baku Analytics Professional',
     ],
     authors: [{ name: 'Ismat Samadov' }],
     creator: 'Ismat Samadov',
     publisher: 'Ismat Samadov',
+    category: 'Technology',
   };
 }
 
@@ -90,12 +111,22 @@ export const defaultMetadata: Metadata = {
     template: '%s | Ismat Samadov',
     default: 'Ismat Samadov | Analyst & Engineer',
   },
-  description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development.',
+  description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development in Azerbaijan.',
   metadataBase: new URL('https://ismatsamadov.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'Ismat Samadov | Analyst & Engineer',
+    images: [{
+      url: '/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Ismat Samadov - Analyst & Engineer',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/og-image.jpg'],
   },
   icons: {
     icon: [
@@ -106,6 +137,13 @@ export const defaultMetadata: Metadata = {
     apple: [
       { url: '/apple-touch-icon.png' },
     ],
+    other: [
+      {
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+        color: '#0070f3',
+      },
+    ],
   },
   manifest: '/site.webmanifest',
   verification: {
@@ -113,4 +151,67 @@ export const defaultMetadata: Metadata = {
     // google: 'google-site-verification-id',
     // yandex: 'yandex-verification-id',
   },
+  alternates: {
+    canonical: 'https://ismatsamadov.com',
+    types: {
+      'application/rss+xml': 'https://ismatsamadov.com/feed.xml',
+    },
+  },
+  // Rich results structured data
+  other: {
+    'format-detection': 'telephone=no',
+  },
+};
+
+// Schema.org structured data for a person
+export const generatePersonSchema = () => {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Ismat Samadov',
+    description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
+    url: 'https://ismatsamadov.com',
+    image: 'https://ismatsamadov.com/ismat-profile.jpg',
+    jobTitle: 'Fraud Analyst',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Kapital Bank',
+    },
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Azerbaijan State University of Economics',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Mingachevir State University',
+      },
+    ],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Oracle Database SQL Certified Associate',
+      credentialCategory: 'Certification',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Oracle',
+      },
+    },
+    sameAs: [
+      'https://github.com/Ismat-Samadov',
+      'https://www.linkedin.com/in/ismatsamadov',
+      'https://www.hackerrank.com/profile/IsmatSamadov',
+      'https://medium.com/@ismatsamadov',
+    ],
+    knowsAbout: [
+      'Data Analysis',
+      'Machine Learning',
+      'Fraud Detection',
+      'Business Intelligence',
+      'Python Programming',
+      'SQL',
+      'Predictive Modeling',
+    ],
+    email: 'mailto:ismetsemedov@gmail.com',
+    telephone: '+994504787463',
+  };
 };
