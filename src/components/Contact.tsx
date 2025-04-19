@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { FaEnvelope, FaPhone } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -70,18 +70,6 @@ const Contact = () => {
                   label="Phone"
                   value="+994 50 478 7463"
                   href="tel:+994504787463"
-                />
-                <ContactItem 
-                  icon={<FaLinkedin />}
-                  label="LinkedIn"
-                  value="linkedin.com/in/ismatsamadov"
-                  href="https://az.linkedin.com/in/ismatsamadov"
-                />
-                <ContactItem 
-                  icon={<FaGithub />}
-                  label="GitHub"
-                  value="github.com/Ismat-Samadov"
-                  href="https://github.com/Ismat-Samadov"
                 />
               </div>
               
