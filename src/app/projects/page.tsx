@@ -2,7 +2,6 @@
 import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 import { WebsiteStructuredData } from '@/components/StructuredData'
-import Link from 'next/link'
 
 // Define project data
 const projectsData = {
