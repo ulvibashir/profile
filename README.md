@@ -1,96 +1,120 @@
 # Ismat Samadov - Professional Portfolio
 
-This is a modern professional portfolio website built with Next.js, TypeScript, and Tailwind CSS. It showcases my expertise in data analytics, fraud detection, and business intelligence.
+A modern, responsive professional portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This site showcases my expertise in machine learning, predictive modeling, data analytics, and fraud detection.
 
-## Features
+## 🔍 [Live Demo](https://ismat.pro)
 
-- Responsive design that works on all devices
-- Modern UI with smooth animations using Framer Motion
-- Interactive timeline for professional experience and education
-- Skills showcase with categorized expertise
-- Contact form with validation
-- Optimized for search engines
+## ✨ Features
 
-## About My Online Presence
+- **Responsive Design**: Mobile-first approach that works seamlessly on all devices
+- **Modern UI/UX**: Clean design with smooth animations using Framer Motion
+- **SEO Optimized**: Structured data, optimized metadata, and semantic HTML
+- **Performance Focused**: Optimized images, fonts, and rendering strategies
+- **Interactive Elements**: Dynamic sections for skills, experience, and projects
+- **Contact Form**: Form with validation that saves messages to a database
 
-I first encountered social media in 2009 with Facebook. After realizing how time-consuming and unnecessary it was, I decided to remove my account in 2013 during my second year at university. Since then, I have intentionally avoided social media platforms, with LinkedIn being the sole exception for professional purposes.
+## 🛠️ Tech Stack
 
-However, in recent years, I've found LinkedIn has shifted from its core mission as a professional networking platform toward promoting entertainment-focused content. This shift prompted me to create this independent online profile as an alternative to third-party platforms, allowing me to maintain a focused professional presence that better aligns with my values and goals.
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **Database**: Vercel Postgres
+- **Authentication**: Next Auth (admin functions)
+- **Deployment**: Vercel
+- **Analytics**: Vercel Analytics
 
-## Professional Background
+## 📚 Professional Background
 
-I am a Data and Fraud Analytics Professional with experience in:
+I am a Data and Fraud Analytics Professional with expertise in:
 
-- Detecting and preventing fraudulent activities in financial transactions
-- Analyzing transactional data using advanced fraud detection tools
-- Developing predictive models to identify business needs
-- Creating data-driven strategies for operational efficiency
-- Implementing measures to mitigate potential risks
+- **Machine Learning**: Developing predictive models and ML systems
+- **Fraud Detection**: Identifying patterns in financial transactions
+- **Business Intelligence**: Creating data-driven insights and strategies
+- **Full-Stack Development**: Building end-to-end solutions
 
-## Technical Skills
+### 💼 Experience
 
-### Data Analysis
-- Data Mining and Extraction
-- Statistical Analysis
+- **Fraud Analyst** at Kapital Bank (2023-Present)
+- **Business Analyst** at Unibank (2021-2023)
+- **Loan Underwriter** at Unibank (2019-2021)
+
+### 🎓 Education & Certifications
+
+- **Master's in Artificial Intelligence** - Azerbaijan State University of Economics
+- **Bachelor's in Management of Industry** - Mingachevir State University
+- **Oracle Database SQL Certified Associate** (2022)
+
+## 🚀 Portfolio Projects
+
+- **iHealth**: Healthcare analytics platform with ML-powered patient outcome prediction
+- **Trackio**: AI-enhanced project management tool with resource optimization algorithms
+- **Jobry**: Career analytics platform with ML-based job matching and skill gap analysis
+- **MyFrog**: ML-powered personal finance management platform with spending prediction
+
+## 👨‍💻 Technical Skills
+
+### Languages & Tools
+- Python, SQL, TypeScript/JavaScript
+- FastAPI, Next.js, React
+- NumPy, Pandas, Scikit-learn, TensorFlow
+- Oracle Database, PostgreSQL
+
+### Machine Learning & AI
 - Predictive Modeling
-- Data Visualization
-- Forecasting
+- Natural Language Processing
+- Time Series Analysis
+- Deep Learning
 
-### Technical Tools
-- SQL
-- Python
-- ETL Processes
-- Oracle Database
-- Business Intelligence Platforms
+## 🔗 Tech Profiles
 
-### Fraud Detection
-- Risk Assessment
-- Anomaly Detection
-- Compliance Monitoring
-- Security Protocols
-- Payment Fraud Prevention
+- [GitHub](https://github.com/Ismat-Samadov)
+- [HackerRank](https://www.hackerrank.com/profile/IsmatSamadov)
+- [Medium](https://medium.com/@ismatsamadov)
+- [Hugging Face](https://huggingface.co/IsmatS)
+- [Kaggle](https://www.kaggle.com/ismetsemedov)
+- [LeetCode](https://leetcode.com/u/ismetsemedov/)
 
-## Tech Stack
+## 🧩 About My Online Presence
 
-This portfolio website is built with:
+I maintain this portfolio as an independent online profile that allows me to showcase my professional work and skills in a focused manner, aligned with my values and goals. I've intentionally removed my presence from social media platforms to maintain focus and productivity.
 
-- **Next.js**: React framework for server-rendered applications
-- **TypeScript**: For type safety and enhanced developer experience
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
-- **Framer Motion**: For smooth animations and interactive elements
-- **React Icons**: High-quality icon components
-- **Vercel**: For deployment and hosting
+## 📝 Project Structure
 
-## Getting Started
+```
+├── public/             # Static assets
+├── src/
+│   ├── app/            # Next.js app router pages
+│   ├── components/     # React components
+│   ├── lib/            # Utility functions and helpers
+│   └── ...
+├── tailwind.config.js  # Tailwind CSS configuration
+└── ...
+```
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Ismat-Samadov/portfolio.git
-   ```
+## 🛠️ Development
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/Ismat-Samadov/profile.git
 
-3. Run the development server:
-   ```bash
-   npm run dev
-   ```
+# Install dependencies
+npm install
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+# Run the development server
+npm run dev
 
-## Deployment
+# Open http://localhost:3000 in your browser
+```
 
-This website is automatically deployed to Vercel when changes are pushed to the main branch.
+## 📬 Contact
 
-## Contact
-
-Feel free to reach out if you're looking for a data professional with experience in fraud detection and business intelligence. I'm open to new opportunities and collaborations.
+Feel free to reach out if you're looking for a data professional with experience in machine learning, fraud detection, and business intelligence. I'm open to new opportunities and collaborations.
 
 - Email: ismetsemedov@gmail.com
 - Phone: +994 50 478 7463
 
-## License
+## 📄 License
 
 MIT
