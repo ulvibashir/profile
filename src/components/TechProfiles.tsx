@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaKaggle, FaLaptopCode, FaCode } from 'react-icons/fa'
+import { FaGithub, FaKaggle } from 'react-icons/fa'
 import { SiHackerrank, SiLeetcode, SiHuggingface, SiMedium } from 'react-icons/si'
 
 const profilesData = [
