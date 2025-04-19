@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://ismatsamadov.com/sitemap.xml
+Sitemap: https://ismat.pro/sitemap.xml
