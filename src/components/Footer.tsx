@@ -14,7 +14,7 @@ const Footer = () => {
                 Ismat Samadov
               </Link>
               <p className="text-gray-400 mt-2">
-                Data & Product Analyst
+                Analyst & Engineer
               </p>
             </div>
             
