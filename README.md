@@ -1,4 +1,4 @@
-# Ismat Samadov - Professional Portfolio
+# Professional Portfolio
 
 A modern, responsive professional portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This site showcases my expertise in machine learning, predictive modeling, data analytics, and fraud detection.
 
