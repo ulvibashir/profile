@@ -22,7 +22,7 @@ export function generatePageMetadata({
   alternateLanguages
 }: PageSEOProps): Metadata {
   // Base URL for production
-  const baseUrl = 'https://ismatsamadov.com';
+  const baseUrl = 'https://ismat.pro';
   
   // Ensure path starts with a slash
   const pagePath = path.startsWith('/') ? path : `/${path}`;
@@ -112,7 +112,7 @@ export const defaultMetadata: Metadata = {
     default: 'Ismat Samadov | Analyst & Engineer',
   },
   description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development in Azerbaijan.',
-  metadataBase: new URL('https://ismatsamadov.com'),
+  metadataBase: new URL('https://ismat.pro'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -152,9 +152,9 @@ export const defaultMetadata: Metadata = {
     // yandex: 'yandex-verification-id',
   },
   alternates: {
-    canonical: 'https://ismatsamadov.com',
+    canonical: 'https://ismat.pro',
     types: {
-      'application/rss+xml': 'https://ismatsamadov.com/feed.xml',
+      'application/rss+xml': 'https://ismat.pro/feed.xml',
     },
   },
   // Rich results structured data
@@ -170,8 +170,8 @@ export const generatePersonSchema = () => {
     '@type': 'Person',
     name: 'Ismat Samadov',
     description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
-    url: 'https://ismatsamadov.com',
-    image: 'https://ismatsamadov.com/ismat-profile.jpg',
+    url: 'https://ismat.pro',
+    image: 'https://ismat.pro/ismat-profile.jpg',
     jobTitle: 'Fraud Analyst',
     worksFor: {
       '@type': 'Organization',
@@ -198,9 +198,11 @@ export const generatePersonSchema = () => {
     },
     sameAs: [
       'https://github.com/Ismat-Samadov',
-      'https://www.linkedin.com/in/ismatsamadov',
+      'https://huggingface.co/IsmatS',
+      'https://www.kaggle.com/ismetsemedov',
       'https://www.hackerrank.com/profile/IsmatSamadov',
       'https://medium.com/@ismatsamadov',
+      'https://leetcode.com/u/ismetsemedov/'
     ],
     knowsAbout: [
       'Data Analysis',
