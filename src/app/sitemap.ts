@@ -10,7 +10,7 @@ const routes = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ismatsamadov.com'
+  const baseUrl = 'https://ismat.pro'
   
   // Create sitemap entries for all static routes
   const routeEntries = routes.map(route => ({
