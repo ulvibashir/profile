@@ -3,8 +3,21 @@
 import { motion } from 'framer-motion'
 import DownloadButton from './DownloadButton'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 const Hero = () => {
+  const [imgError, setImgError] = useState(false);
+  
+  useEffect(() => {
+    // Check if image exists
+    const img = new Image();
+    img.src = '/ismat-profile.jpg';
+    img.onerror = () => {
+      console.error('Profile image not found in public directory');
+      setImgError(true);
+    };
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-gray-100 pt-16">
       <div className="container mx-auto px-4">
@@ -38,14 +51,21 @@ const Hero = () => {
           {/* Add optimized image with proper alt text */}
           <div className="mb-8 flex justify-center">
             <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-primary">
-              <Image 
-                src="/ismat-profile.jpg" 
-                alt="Ismat Samadov - Data & Fraud Analytics Professional" 
-                fill 
-                sizes="(max-width: 768px) 100vw, 128px"
-                priority 
-                className="object-cover"
-              />
+              {imgError ? (
+                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                  IS
+                </div>
+              ) : (
+                <Image 
+                  src="/ismat-profile.jpg" 
+                  alt="Ismat Samadov - Data & Fraud Analytics Professional" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 128px"
+                  priority 
+                  className="object-cover"
+                  onError={() => setImgError(true)}
+                />
+              )}
             </div>
           </div>
           
