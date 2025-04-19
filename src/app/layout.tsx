@@ -1,13 +1,11 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { defaultMetadata } from '@/lib/seo'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Ismat Samadov | Analyst & Engineer',
-  description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development.',
-}
+export const metadata: Metadata = defaultMetadata;
 
 export default function RootLayout({
   children,
