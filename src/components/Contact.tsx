@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaExclamationTriangle } from 'react-icons/fa'
 
 interface FormData {
   name: string;
@@ -11,23 +11,77 @@ interface FormData {
   createdAt?: Date;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
 const Contact = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: ''
   })
+  const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
 
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {}
+    let isValid = true
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+      isValid = false
+    } else if (formData.name.length < 2) {
+      newErrors.name = 'Name must be at least 2 characters'
+      isValid = false
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+      isValid = false
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please provide a valid email address'
+      isValid = false
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required'
+      isValid = false
+    } else if (formData.message.length < 10) {
+      newErrors.message = 'Message must be at least 10 characters'
+      isValid = false
+    }
+
+    setErrors(newErrors)
+    return isValid
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Clear error for this field when user starts typing
+    if (errors[name as keyof FormErrors]) {
+      setErrors(prev => ({ ...prev, [name]: undefined }))
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      return
+    }
+    
     setIsSubmitting(true)
     setError('')
     
@@ -48,7 +102,8 @@ const Contact = () => {
       })
       
       if (!response.ok) {
-        throw new Error('Failed to submit message')
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to submit message')
       }
       
       // Clear form and show success
@@ -56,7 +111,11 @@ const Contact = () => {
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
     } catch (err) {
-      setError('Something went wrong. Please try again later.')
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError('Something went wrong. Please try again later.')
+      }
       console.error('Error submitting form:', err)
     } finally {
       setIsSubmitting(false)
@@ -116,9 +175,16 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
+                      errors.name ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                      <FaExclamationTriangle className="mr-1" size={12} />
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
                 
                 <div>
@@ -131,9 +197,16 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
+                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                      <FaExclamationTriangle className="mr-1" size={12} />
+                      {errors.email}
+                    </p>
+                  )}
                 </div>
                 
                 <div>
@@ -145,10 +218,17 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
                     rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
+                      errors.message ? 'border-red-500' : 'border-gray-300'
+                    }`}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                      <FaExclamationTriangle className="mr-1" size={12} />
+                      {errors.message}
+                    </p>
+                  )}
                 </div>
                 
                 <button
@@ -160,13 +240,15 @@ const Contact = () => {
                 </button>
                 
                 {error && (
-                  <p className="text-red-500 text-sm mt-2">{error}</p>
+                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                    {error}
+                  </div>
                 )}
                 
                 {isSubmitted && (
-                  <p className="text-green-500 text-sm mt-2">
+                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
                     Your message has been sent successfully! I&apos;ll get back to you soon.
-                  </p>
+                  </div>
                 )}
               </form>
             </div>
