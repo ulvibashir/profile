@@ -14,7 +14,7 @@ const Footer = () => {
                 Ismat Samadov
               </Link>
               <p className="text-gray-400 mt-2">
-                Data & Fraud Analytics Professional
+                Data & Product Analyst
               </p>
             </div>
             
