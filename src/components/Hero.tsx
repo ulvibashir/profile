@@ -17,12 +17,12 @@ const Hero = () => {
             <span className="text-primary">Ismat</span> Samadov
           </h1>
           <h2 className="text-xl sm:text-2xl font-medium mb-6 text-gray-700">
-            Data & Fraud Analytics Professional
+            Data & Product Analyst
           </h2>
           <p className="text-gray-600 mb-8 text-lg max-w-2xl mx-auto">
-            Experienced in data analysis, fraud detection, and business intelligence. 
-            Skilled in developing predictive models and identifying business needs.
-            Proficient in SQL and Python.
+            Specialized in machine learning, predictive modeling, and full-stack development.
+            Creating practical AI solutions that drive business value, particularly in banking, 
+            healthcare, and finance sectors.
           </p>
           
           <motion.div
