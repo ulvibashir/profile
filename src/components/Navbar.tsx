@@ -49,6 +49,8 @@ const Navbar = () => {
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#education">Education</NavLink>
           <NavLink href="#skills">Skills</NavLink>
+          <NavLink href="#tech-profiles">Tech Profiles</NavLink>
+          <NavLink href="#portfolio">Portfolio</NavLink>
           <NavLink href="#contact">Contact</NavLink>
         </nav>
       </div>
@@ -61,6 +63,8 @@ const Navbar = () => {
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</MobileNavLink>
             <MobileNavLink href="#education" onClick={() => setIsMenuOpen(false)}>Education</MobileNavLink>
             <MobileNavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</MobileNavLink>
+            <MobileNavLink href="#tech-profiles" onClick={() => setIsMenuOpen(false)}>Tech Profiles</MobileNavLink>
+            <MobileNavLink href="#portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</MobileNavLink>
           </div>
         </nav>
