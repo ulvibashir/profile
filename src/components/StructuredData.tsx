@@ -5,7 +5,7 @@ export function PersonStructuredData() {
     '@type': 'Person',
     name: 'Ismat Samadov',
     description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
-    url: 'https://ismatsamadov.com',
+    url: 'https://ismat.pro',
     image: 'https://ismatsamadov.com/ismat-profile.jpg',
     jobTitle: 'Fraud Analyst',
     worksFor: {
@@ -33,9 +33,11 @@ export function PersonStructuredData() {
     },
     sameAs: [
       'https://github.com/Ismat-Samadov',
-      'https://www.linkedin.com/in/ismatsamadov',
+      'https://huggingface.co/IsmatS',
+      'https://www.kaggle.com/ismetsemedov',
       'https://www.hackerrank.com/profile/IsmatSamadov',
       'https://medium.com/@ismatsamadov',
+      'https://leetcode.com/u/ismetsemedov/'
     ],
     knowsAbout: [
       'Data Analysis',
@@ -92,7 +94,7 @@ export function ProjectStructuredData({
     author: {
       '@type': 'Person',
       name: author,
-      url: 'https://ismatsamadov.com'
+      url: 'https://ismat.pro'
     },
     programmingLanguage: {
       '@type': 'ComputerLanguage',
@@ -124,7 +126,7 @@ export function WebsiteStructuredData() {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://ismatsamadov.com/search?q={search_term_string}'
+        urlTemplate: 'https://ismat.pro/search?q={search_term_string}'
       },
       'query-input': 'required name=search_term_string'
     }
