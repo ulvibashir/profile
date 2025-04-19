@@ -1,6 +1,6 @@
 // src/app/api/contact/route.ts
 import { NextResponse } from 'next/server'
-import { sql } from '@vercel/postgres'
+import { createClient } from '@vercel/postgres'
 
 export async function POST(request: Request) {
   try {
@@ -15,11 +15,18 @@ export async function POST(request: Request) {
       )
     }
     
+    // Create a client to connect to the database
+    const client = createClient()
+    await client.connect()
+    
     // Insert the data into the database
-    await sql`
+    await client.sql`
       INSERT INTO contact_messages (name, email, message, created_at)
       VALUES (${name}, ${email}, ${message}, ${createdAt || new Date().toISOString()})
     `
+    
+    // Close the connection
+    await client.end()
     
     // Return a success response
     return NextResponse.json(
