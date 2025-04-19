@@ -1,16 +1,15 @@
 // src/middleware.ts
 import { NextResponse } from 'next/server'
+// We still need to import NextRequest even if we don't use it directly
 import type { NextRequest } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
-export function middleware(_request: NextRequest) {
-  // Using underscore prefix for the parameter name to indicate it's intentionally unused
-  // You can add any site-wide middleware logic here if needed
-  // For example, security headers, redirects, etc.
+// Define the middleware function without parameters to avoid unused variable warnings
+export function middleware() {
+  // Simple middleware that just passes through the request
   return NextResponse.next()
 }
 
-// Update the config to remove admin routes
+// Keep an empty matcher config since we're not protecting any routes
 export const config = {
-  matcher: [] // Empty matcher since we're not protecting any routes now
+  matcher: []
 }
