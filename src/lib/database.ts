@@ -33,10 +33,13 @@ export async function saveContactMessage(
   message: string,
   createdAt?: Date
 ): Promise<void> {
+  // Convert Date to ISO string before passing to SQL
+  const timestamp = createdAt ? createdAt.toISOString() : new Date().toISOString();
+  
   await executeQuery(async (client) => {
     return client.sql`
       INSERT INTO contact_messages (name, email, message, created_at)
-      VALUES (${name}, ${email}, ${message}, ${createdAt || new Date().toISOString()})
+      VALUES (${name}, ${email}, ${message}, ${timestamp})
     `;
   });
 }
