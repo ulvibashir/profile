@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { FaEnvelope, FaTrash, FaCheckCircle, FaReply } from 'react-icons/fa'
 
 interface Message {
@@ -13,17 +13,15 @@ interface Message {
   updated_at: string;
 }
 
+type MessageStatus = 'all' | 'new' | 'read' | 'replied' | 'archived';
+
 export default function AdminMessages() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [currentStatus, setCurrentStatus] = useState<'all' | 'new' | 'read' | 'replied' | 'archived'>('all');
+  const [currentStatus, setCurrentStatus] = useState<MessageStatus>('all');
 
-  useEffect(() => {
-    fetchMessages();
-  }, [currentStatus]);
-
-  const fetchMessages = async () => {
+  const fetchMessages = useCallback(async () => {
     try {
       setLoading(true);
       const statusFilter = currentStatus !== 'all' ? `?status=${currentStatus}` : '';
@@ -41,7 +39,11 @@ export default function AdminMessages() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentStatus]);
+  
+  useEffect(() => {
+    fetchMessages();
+  }, [fetchMessages]);
 
   const updateMessageStatus = async (id: number, status: 'read' | 'replied' | 'archived') => {
     try {
@@ -117,7 +119,7 @@ export default function AdminMessages() {
         <label className="block text-sm font-medium text-gray-700 mb-2">Filter by status:</label>
         <select
           value={currentStatus}
-          onChange={(e) => setCurrentStatus(e.target.value as any)}
+          onChange={(e) => setCurrentStatus(e.target.value as MessageStatus)}
           className="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
         >
           <option value="all">All Messages</option>
