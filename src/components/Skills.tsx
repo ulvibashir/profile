@@ -4,33 +4,33 @@ import { motion } from 'framer-motion'
 import { FaCode, FaDatabase, FaChartBar, FaTools } from 'react-icons/fa'
 
 const skillsData = {
-  dataAnalysis: [
-    'Data Mining', 
-    'Data Visualization', 
-    'Predictive Modeling',
-    'Statistical Analysis',
-    'Forecasting'
+  dataScience: [
+    'Machine Learning', 
+    'Predictive Modeling', 
+    'Time Series Analysis',
+    'NLP',
+    'Deep Learning'
   ],
   technicalSkills: [
-    'SQL',
     'Python',
-    'Business Intelligence',
-    'ETL Processes',
-    'Data Warehousing'
+    'SQL',
+    'FastAPI',
+    'Full-Stack Development',
+    'DevOps'
   ],
-  fraudDetection: [
-    'Fraud Prevention', 
+  analytics: [
+    'Customer Analytics', 
+    'Financial Modeling',
+    'CLV Prediction',
     'Risk Assessment',
-    'Anomaly Detection',
-    'Compliance Monitoring',
-    'Security Protocols'
+    'Fraud Detection'
   ],
-  tools: [
-    'Oracle Database', 
-    'Data Analysis Tools',
-    'Reporting Systems',
-    'Version Control',
-    'Business Analytics Platforms'
+  projects: [
+    'Real-time ML Systems', 
+    'End-to-end AI Solutions',
+    'API Development',
+    'Budget Forecasting',
+    'NLP Applications'
   ]
 }
 
@@ -49,9 +49,9 @@ const Skills = () => {
           
           <div className="grid md:grid-cols-2 gap-8">
             <SkillCategory 
-              title="Data Analysis"
+              title="Data Science"
               icon={<FaChartBar />}
-              skills={skillsData.dataAnalysis}
+              skills={skillsData.dataScience}
               delay={0}
             />
             
@@ -63,16 +63,16 @@ const Skills = () => {
             />
             
             <SkillCategory 
-              title="Fraud Detection"
+              title="Analytics"
               icon={<FaDatabase />}
-              skills={skillsData.fraudDetection}
+              skills={skillsData.analytics}
               delay={0.2}
             />
             
             <SkillCategory 
-              title="Tools"
+              title="Project Areas"
               icon={<FaTools />}
-              skills={skillsData.tools}
+              skills={skillsData.projects}
               delay={0.3}
             />
           </div>
