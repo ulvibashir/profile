@@ -75,8 +75,8 @@ const Contact = () => {
               
               <div className="mt-8">
                 <p className="text-gray-700">
-                  Feel free to reach out if you&apos;re looking for a data professional with experience in fraud detection
-                  and business intelligence. I&apos;m open to new opportunities and collaborations.
+                  Feel free to reach out if you&apos;re looking for a data professional with expertise in machine learning, 
+                  predictive modeling, and AI solutions. I&apos;m open to new opportunities and collaborations.
                 </p>
               </div>
             </div>
