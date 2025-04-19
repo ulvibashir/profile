@@ -4,8 +4,15 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone } from 'react-icons/fa'
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+  createdAt?: Date;
+}
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: ''
@@ -24,19 +31,33 @@ const Contact = () => {
     setIsSubmitting(true)
     setError('')
     
-    // In a real application, you would send this data to your backend
-    // This is a simulation for demonstration purposes
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Add timestamp to the form data
+      const submissionData = {
+        ...formData,
+        createdAt: new Date()
+      }
+      
+      // Send the data to our API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      })
+      
+      if (!response.ok) {
+        throw new Error('Failed to submit message')
+      }
       
       // Clear form and show success
       setFormData({ name: '', email: '', message: '' })
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
-    } catch {
-      // No parameter needed
+    } catch (err) {
       setError('Something went wrong. Please try again later.')
+      console.error('Error submitting form:', err)
     } finally {
       setIsSubmitting(false)
     }
