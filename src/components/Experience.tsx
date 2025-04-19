@@ -8,11 +8,11 @@ const experienceData = [
     company: 'Kapital Bank',
     period: 'Feb 2023 - Present',
     responsibilities: [
-      'Detect and prevent fraudulent activities including unauthorized account access, identity theft, and payment fraud',
-      'Analyze transactional data using advanced fraud detection tools',
-      'Conduct thorough investigations into suspected cases of fraud',
-      'Collaborate with internal teams and law enforcement agencies to resolve issues',
-      'Implement measures to mitigate potential risks to the financial institution and its customers'
+      'Developing machine learning models for real-time fraud detection',
+      'Creating predictive systems to identify suspicious transaction patterns',
+      'Building end-to-end ML solutions from data processing to API deployment',
+      'Collaborating with cross-functional teams on AI-driven security measures',
+      'Implementing practical AI solutions to mitigate financial risks'
     ]
   },
   {
@@ -20,11 +20,11 @@ const experienceData = [
     company: 'Unibank',
     period: 'Dec 2021 - Feb 2023',
     responsibilities: [
-      'Managed master data, including creation, updates, and deletion',
-      'Identified trends, patterns, and anomalies in banking data',
-      'Assisted in data analysis projects to support business needs',
-      'Worked on automating routine reports for improved efficiency',
-      'Provided actionable recommendations to improve operational efficiency, risk management, and customer experience'
+      'Designed and implemented predictive models for customer behavior analysis',
+      'Developed time-series forecasting solutions for business metrics',
+      'Created CLV prediction systems and customer segmentation models',
+      'Automated analytical processes with machine learning algorithms',
+      'Built data visualization solutions for actionable business insights'
     ]
   },
   {
@@ -32,11 +32,11 @@ const experienceData = [
     company: 'Unibank',
     period: 'Sep 2019 - Dec 2021',
     responsibilities: [
-      'Evaluated loan applications to assess creditworthiness',
-      'Reviewed credit applications for various consumer loans',
-      'Ensured adherence to lending guidelines and risk levels',
-      'Made data-driven decisions to approve or deny loan requests',
-      'Balanced borrower needs with bank\'s risk exposure and regulatory requirements'
+      'Developed ML models for automated loan eligibility assessment',
+      'Created risk prediction algorithms for loan applications',
+      'Built analytical frameworks for credit risk evaluation',
+      'Implemented data-driven decision systems for loan approvals',
+      'Designed predictive models for default risk calculation'
     ]
   }
 ]
