@@ -2,16 +2,25 @@
 
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { signIn } from '@/lib/auth'
 
 export default function Login() {
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   
   const router = useRouter()
   const searchParams = useSearchParams()
-  const from = searchParams.get('from') || '/admin/messages'
+  const callbackUrl = searchParams.get('callbackUrl') || '/admin/messages'
+  const authError = searchParams.get('error')
+  
+  // Display auth error if coming from NextAuth
+  useState(() => {
+    if (authError) {
+      setError('Authentication failed. Please check your credentials.')
+    }
+  }, [authError])
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -19,19 +28,24 @@ export default function Login() {
     setLoading(true)
     
     try {
-      // In a real app, you would send a request to an API endpoint
-      // This is a client-side only implementation for demonstration
-      const credentials = btoa(`${username}:${password}`)
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      })
       
-      // Store credentials in localStorage (not secure for production)
-      localStorage.setItem('adminAuth', `Basic ${credentials}`)
+      if (result?.error) {
+        setError('Invalid email or password')
+        setLoading(false)
+        return
+      }
       
-      // Redirect to the original destination
-      router.push(from)
+      // Redirect to callback URL or default admin page
+      router.push(callbackUrl)
+      router.refresh()
     } catch (err) {
       console.error('Login error:', err)
       setError('An error occurred during login. Please try again.')
-    } finally {
       setLoading(false)
     }
   }
@@ -57,17 +71,17 @@ export default function Login() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="username" className="sr-only">Username</label>
+              <label htmlFor="email" className="sr-only">Email</label>
               <input
-                id="username"
-                name="username"
-                type="text"
-                autoComplete="username"
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
-                placeholder="Username"
+                placeholder="Email address"
               />
             </div>
             <div>
