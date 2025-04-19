@@ -4,10 +4,10 @@ import { sql } from '@vercel/postgres'
 // GET handler to retrieve a specific message by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const id = params.id
+    const id = context.params.id
     
     const result = await sql`
       SELECT * FROM contact_messages 
@@ -38,10 +38,10 @@ export async function GET(
 // PATCH handler to update a message's status
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const id = params.id
+    const id = context.params.id
     const { status } = await request.json()
     
     // Validate the status
@@ -83,10 +83,10 @@ export async function PATCH(
 // DELETE handler to remove a message
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const id = params.id
+    const id = context.params.id
     
     const result = await sql`
       DELETE FROM contact_messages 
