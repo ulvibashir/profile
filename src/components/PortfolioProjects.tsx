@@ -7,26 +7,26 @@ const projectsData = [
   {
     title: 'iHealth',
     url: 'https://www.ihealth.ink/',
-    description: 'A healthcare platform for tracking and managing health metrics and appointments',
-    tags: ['Healthcare', 'Analytics', 'Web Application']
+    description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
+    tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
   },
   {
     title: 'Trackio',
     url: 'https://www.trackio.art/',
-    description: 'Creative project tracking and management tool for artists and designers',
-    tags: ['Art', 'Project Management', 'Creative Tools']
+    description: 'AI-enhanced project management tool with automated task prioritization and resource optimization algorithms',
+    tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
   },
   {
     title: 'Jobry',
     url: 'https://www.jobry.me/',
-    description: 'Job search and application tracking platform for professionals',
-    tags: ['Job Search', 'Career', 'Productivity']
+    description: 'Career analytics platform with ML-based job matching and skill gap analysis for professional development',
+    tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
   },
   {
     title: 'MyFrog',
     url: 'https://www.myfrog.me/',
-    description: 'Personal finance management and budgeting application',
-    tags: ['Finance', 'Budgeting', 'Personal']
+    description: 'ML-powered personal finance management platform with spending prediction and automated budget optimization',
+    tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
   }
 ]
 
