@@ -1,0 +1,6 @@
+# robots.txt for ismatsamadov.com
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://ismatsamadov.com/sitemap.xml
