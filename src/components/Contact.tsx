@@ -27,6 +27,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
@@ -101,13 +102,15 @@ const Contact = () => {
         body: JSON.stringify(submissionData),
       })
       
+      const data = await response.json()
+      
       if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to submit message')
+        throw new Error(data.error || 'Failed to submit message')
       }
       
       // Clear form and show success
       setFormData({ name: '', email: '', message: '' })
+      setSuccessMessage("Your message has been sent successfully! I'll get back to you soon.")
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
     } catch (err) {
@@ -116,6 +119,14 @@ const Contact = () => {
       } else {
         setError('Something went wrong. Please try again later.')
       }
+      
+      // Fallback message if the API fails
+      setSuccessMessage(
+        "While there was an issue with our contact system, " +
+        "you can reach me directly at ismetsemedov@gmail.com or +994 50 478 7463."
+      )
+      setIsSubmitted(true)
+      
       console.error('Error submitting form:', err)
     } finally {
       setIsSubmitting(false)
@@ -239,7 +250,7 @@ const Contact = () => {
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
                 
-                {error && (
+                {error && !isSubmitted && (
                   <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
                     {error}
                   </div>
@@ -247,7 +258,7 @@ const Contact = () => {
                 
                 {isSubmitted && (
                   <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-                    Your message has been sent successfully! I&apos;ll get back to you soon.
+                    {successMessage}
                   </div>
                 )}
               </form>
