@@ -1,18 +1,66 @@
 // src/components/StructuredData.tsx
-import { generatePersonSchema } from '@/lib/seo'
-
 export function PersonStructuredData() {
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Ismat Samadov',
+    description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
+    url: 'https://ismatsamadov.com',
+    image: 'https://ismatsamadov.com/ismat-profile.jpg',
+    jobTitle: 'Fraud Analyst',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Kapital Bank',
+    },
+    alumniOf: [
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Azerbaijan State University of Economics',
+      },
+      {
+        '@type': 'CollegeOrUniversity',
+        name: 'Mingachevir State University',
+      },
+    ],
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Oracle Database SQL Certified Associate',
+      credentialCategory: 'Certification',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Oracle',
+      },
+    },
+    sameAs: [
+      'https://github.com/Ismat-Samadov',
+      'https://www.linkedin.com/in/ismatsamadov',
+      'https://www.hackerrank.com/profile/IsmatSamadov',
+      'https://medium.com/@ismatsamadov',
+    ],
+    knowsAbout: [
+      'Data Analysis',
+      'Machine Learning',
+      'Fraud Detection',
+      'Business Intelligence',
+      'Python Programming',
+      'SQL',
+      'Predictive Modeling',
+    ],
+    email: 'mailto:ismetsemedov@gmail.com',
+    telephone: '+994504787463',
+  };
+
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(generatePersonSchema())
+        __html: JSON.stringify(personSchema)
       }}
     />
-  )
+  );
 }
 
-// For your projects, you can add this component:
+// Project structured data component
 interface ProjectStructuredDataProps {
   title: string;
   description: string;
@@ -52,6 +100,34 @@ export function ProjectStructuredData({
     },
     codeRepository: url,
     codeSampleType: 'full',
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData)
+      }}
+    />
+  );
+}
+
+// Website structured data
+export function WebsiteStructuredData() {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Ismat Samadov | Analyst & Engineer',
+    url: 'https://ismatsamadov.com',
+    description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://ismatsamadov.com/search?q={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    }
   };
 
   return (
