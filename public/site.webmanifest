@@ -1,0 +1,21 @@
+{
+  "name": "Ismat Samadov | Analyst & Engineer",
+  "short_name": "Ismat Samadov",
+  "description": "Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0070f3",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
