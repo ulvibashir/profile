@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaExternalLinkAlt, FaInfoCircle } from 'react-icons/fa'
+import { FaExternalLinkAlt, FaInfoCircle, FaGithub } from 'react-icons/fa'
 import Link from 'next/link'
 
 const projectsData = [
@@ -9,29 +9,33 @@ const projectsData = [
     title: 'iHealth',
     slug: 'ihealth',
     url: 'https://www.ihealth.ink/',
-    description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
-    tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
+    github: 'https://github.com/Ismat-Samadov/intelligent_healthcare',
+    description: 'A Next.js-based healthcare assistant application that provides health information and guidance to users. This AI-powered assistant can answer questions about common health issues, provide general medical information, and guide users toward appropriate healthcare resources.',
+    tags: ['AI Assistant', 'Healthcare', 'Next.js']
   },
   {
     title: 'Trackio',
     slug: 'trackio',
     url: 'https://www.trackio.art/',
-    description: 'AI-enhanced project management tool with automated task prioritization and resource optimization algorithms',
-    tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
+    github: 'https://github.com/Ismat-Samadov/trackio',
+    description: 'A modern, full-stack habit tracking application built with Next.js 14, featuring a calendar-style interface for tracking daily habits with real-time updates and user authentication.',
+    tags: ['Habit Tracking', 'Next.js 14', 'User Authentication']
   },
   {
     title: 'Jobry',
     slug: 'jobry',
     url: 'https://www.jobry.me/',
-    description: 'Career analytics platform with ML-based job matching and skill gap analysis for professional development',
-    tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
+    github: 'https://github.com/Ismat-Samadov/jobry',
+    description: 'A modern, high-performance job board that aggregates positions from over 50 different sources, making job hunting simpler and more efficient. Built with Next.js and powered by real-time data scraping, it brings you the latest opportunities in one sleek interface.',
+    tags: ['Job Board', 'Data Aggregation', 'Next.js']
   },
   {
     title: 'MyFrog',
     slug: 'myfrog',
     url: 'https://www.myfrog.me/',
-    description: 'ML-powered personal finance management platform with spending prediction and automated budget optimization',
-    tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
+    github: 'https://github.com/Ismat-Samadov/myfrog',
+    description: 'A modern task and project management system built with Next.js 14, featuring real-time updates, project organization, and comprehensive task tracking. The application provides an intuitive interface for managing projects and tasks efficiently.',
+    tags: ['Project Management', 'Task Tracking', 'Next.js 14']
   }
 ]
 
@@ -55,6 +59,7 @@ const PortfolioProjects = () => {
                 title={project.title}
                 slug={project.slug}
                 url={project.url}
+                github={project.github}
                 description={project.description}
                 tags={project.tags}
                 index={index}
@@ -71,12 +76,13 @@ interface ProjectCardProps {
   title: string;
   slug: string;
   url: string;
+  github: string;
   description: string;
   tags: string[];
   index: number;
 }
 
-const ProjectCard = ({ title, slug, url, description, tags, index }: ProjectCardProps) => {
+const ProjectCard = ({ title, slug, url, github, description, tags, index }: ProjectCardProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -89,6 +95,15 @@ const ProjectCard = ({ title, slug, url, description, tags, index }: ProjectCard
         <div className="flex justify-between items-start mb-3">
           <h3 className="text-xl font-bold">{title}</h3>
           <div className="flex space-x-2">
+            <a 
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-blue-600 transition-colors"
+              aria-label={`GitHub repository for ${title}`}
+            >
+              <FaGithub />
+            </a>
             <Link 
               href={`/portfolio/${slug}`}
               className="text-primary hover:text-blue-600 transition-colors"
