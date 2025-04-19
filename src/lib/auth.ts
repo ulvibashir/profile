@@ -1,10 +1,7 @@
-// First, install NextAuth:
-// npm install next-auth@beta
-
 // src/lib/auth.ts
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcryptjs"; // You'll need to install this: npm install bcryptjs
+import bcrypt from "bcryptjs";
 import { sql } from '@vercel/postgres';
 
 // This is the shape of the user object returned from the database
@@ -103,7 +100,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 // Add this to src/middleware.ts
 import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+// NextRequest is imported in middleware.ts, not needed here
+// import type { NextRequest } from "next/server";
 
 export default auth((req) => {
   const { nextUrl } = req;
