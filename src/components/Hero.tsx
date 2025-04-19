@@ -17,7 +17,7 @@ const Hero = () => {
             <span className="text-primary">Ismat</span> Samadov
           </h1>
           <h2 className="text-xl sm:text-2xl font-medium mb-6 text-gray-700">
-            Data & Product Analyst
+            Analyst & Engineer
           </h2>
           <p className="text-gray-600 mb-8 text-lg max-w-2xl mx-auto">
             Specialized in machine learning, predictive modeling, and full-stack development.
