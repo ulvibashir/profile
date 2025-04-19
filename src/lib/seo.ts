@@ -31,7 +31,7 @@ export function generatePageMetadata({
   const url = `${baseUrl}${pagePath}`;
   
   // Construct alternates with language versions
-  const alternates: Record<string, any> = {
+  const alternates: Record<string, unknown> = {
     canonical: url,
   };
   
