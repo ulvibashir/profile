@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa'
+import { FaEnvelope } from 'react-icons/fa'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -19,9 +19,15 @@ const Footer = () => {
             </div>
             
             <div className="flex space-x-4">
-              <SocialLink href="https://az.linkedin.com/in/ismatsamadov" icon={<FaLinkedin />} label="LinkedIn" />
-              <SocialLink href="https://github.com/Ismat-Samadov" icon={<FaGithub />} label="GitHub" />
-              <SocialLink href="mailto:ismetsemedov@gmail.com" icon={<FaEnvelope />} label="Email" />
+              <a 
+                href="mailto:ismetsemedov@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
+                aria-label="Email"
+              >
+                <FaEnvelope />
+              </a>
             </div>
           </div>
           
@@ -35,26 +41,14 @@ const Footer = () => {
               <FooterLink href="#experience">Experience</FooterLink>
               <FooterLink href="#education">Education</FooterLink>
               <FooterLink href="#skills">Skills</FooterLink>
+              <FooterLink href="#tech-profiles">Tech Profiles</FooterLink>
+              <FooterLink href="#portfolio">Portfolio</FooterLink>
               <FooterLink href="#contact">Contact</FooterLink>
             </nav>
           </div>
         </div>
       </div>
     </footer>
-  )
-}
-
-const SocialLink = ({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) => {
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors"
-      aria-label={label}
-    >
-      {icon}
-    </a>
   )
 }
 
