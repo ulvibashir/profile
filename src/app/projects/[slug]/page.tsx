@@ -31,8 +31,14 @@ const projectsData = {
   // Add other projects here
 };
 
+type Params = {
+  params: {
+    slug: string;
+  };
+};
+
 // Generate metadata for each project page
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const slug = params.slug;
   const project = projectsData[slug as keyof typeof projectsData];
   
@@ -57,7 +63,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({ params }: Params) {
   const slug = params.slug;
   const project = projectsData[slug as keyof typeof projectsData];
   
@@ -66,22 +72,56 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
   
   return (
-    <main>
-      {/* Add structured data for this project */}
-      <ProjectStructuredData
-        title={project.title}
-        description={project.description}
-        url={project.url}
-        imageUrl={project.imageUrl}
-        datePublished={project.datePublished}
-        dateModified={project.dateModified}
-        author="Ismat Samadov"
-      />
-      
-      <h1>{project.title}</h1>
-      <div>{project.content}</div>
-      
-      {/* Rest of your project page content */}
+    <main className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          {/* Add structured data for this project */}
+          <ProjectStructuredData
+            title={project.title}
+            description={project.description}
+            url={project.url}
+            imageUrl={project.imageUrl}
+            datePublished={project.datePublished}
+            dateModified={project.dateModified}
+            author="Ismat Samadov"
+          />
+          
+          <h1 className="text-3xl font-bold mb-6 text-primary">{project.title}</h1>
+          
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <p className="mb-4">{project.description}</p>
+            <p>{project.content}</p>
+            
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.tags.map((tag, index) => (
+                <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm font-medium rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div className="mt-8 flex gap-4">
+              <a 
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-gray-800 text-white py-2 px-4 rounded-md hover:bg-gray-900 transition-colors"
+              >
+                View on GitHub
+              </a>
+              
+              <a 
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-primary text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors"
+              >
+                Visit Live Project
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
