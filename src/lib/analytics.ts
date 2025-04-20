@@ -154,7 +154,7 @@ export function parseUtmParams(url: string): Record<string, string> {
       utmTerm: parsedUrl.searchParams.get('utm_term') || undefined,
       utmContent: parsedUrl.searchParams.get('utm_content') || undefined,
     };
-  } catch (_) {
+  } catch {
     // Ignore URL parsing errors
     return {};
   }
