@@ -44,10 +44,6 @@ export async function middleware(request: NextRequest) {
     });
   }
   
-  // Store session ID in headers for use in page components
-  response.headers.set('x-session-id', sessionId);
-  response.headers.set('x-visitor-id', visitorId);
-  
   return response;
 }
 

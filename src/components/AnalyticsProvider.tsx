@@ -4,14 +4,11 @@
 import { useEffect, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { v4 as uuidv4 } from 'uuid'
-import Cookies from 'js-cookie' // You'll need to install this package
+import Cookies from 'js-cookie'
 
 interface AnalyticsProviderProps {
   children: React.ReactNode
 }
-
-// Time in milliseconds to consider a page visit
-const PAGE_VIEW_THRESHOLD = 2000
 
 const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
   const pathname = usePathname()
@@ -231,35 +228,6 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
       window.removeEventListener('beforeunload', handleBeforeUnload)
     }
   }, [hasTrackedPageView])
-
-  // Function to explicitly track events from components
-  const trackEvent = async (eventType: string, componentId: string, eventValue?: any) => {
-    const { sessionId } = getSessionData()
-    
-    try {
-      await fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessionId,
-          eventType,
-          pagePath: pathname,
-          componentId,
-          eventValue: typeof eventValue === 'string' ? eventValue : JSON.stringify(eventValue),
-        }),
-      })
-    } catch (error) {
-      console.error(`Error tracking ${eventType}:`, error)
-    }
-  }
-
-  // Expose the trackEvent function to the window object
-  useEffect(() => {
-    // @ts-ignore
-    window.trackEvent = trackEvent
-  }, [])
 
   return <>{children}</>
 }

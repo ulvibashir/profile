@@ -1,7 +1,6 @@
 // src/lib/analytics.ts
 import { createClient, VercelClient } from '@vercel/postgres';
-import { v4 as uuidv4 } from 'uuid'; // You'll need to install this package
-import UAParser from 'ua-parser-js'; // You'll need to install this package
+import UAParser from 'ua-parser-js';
 
 // Types for our analytics data
 export interface VisitorSession {
@@ -57,7 +56,7 @@ async function executeQuery<T>(
 }
 
 // Parse user agent to get device, browser, and OS information
-function parseUserAgent(userAgentString: string | undefined): any {
+export function parseUserAgent(userAgentString: string | undefined): any {
   if (!userAgentString) return {};
   
   const parser = new UAParser(userAgentString);
@@ -72,7 +71,7 @@ function parseUserAgent(userAgentString: string | undefined): any {
 }
 
 // Check if the user agent is likely a bot
-function isBot(userAgentString: string | undefined): boolean {
+export function isBot(userAgentString: string | undefined): boolean {
   if (!userAgentString) return false;
   
   const botPatterns = [
@@ -86,8 +85,8 @@ function isBot(userAgentString: string | undefined): boolean {
 
 // Create or update a visitor session
 export async function trackSession(sessionData: VisitorSession): Promise<string> {
-  // Generate a unique session ID if one doesn't exist
-  const sessionId = sessionData.sessionId || uuidv4();
+  // Use the provided session ID
+  const sessionId = sessionData.sessionId;
   
   await executeQuery(async (client) => {
     // Check if session exists
