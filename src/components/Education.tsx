@@ -123,6 +123,7 @@ interface CertificationItemProps {
   index: number
 }
 
+// Updated CertificationItem component in Education.tsx
 const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: CertificationItemProps) => {
   return (
     <motion.div 
@@ -144,6 +145,7 @@ const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: Certifica
             label="Download Certificate"
             variant="secondary"
             className="text-sm py-2 px-3"
+            documentType="certificate"
           />
         </div>
       )}

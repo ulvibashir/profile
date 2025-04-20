@@ -148,3 +148,96 @@ FROM (
     GROUP BY s.session_id, s.visitor_id, s.first_visit_timestamp
 ) subquery
 GROUP BY is_returning;
+
+
+-- Track all downloads with relevant details
+SELECT 
+    ve.event_type,
+    ve.component_id,
+    ve.event_value AS file_name,
+    ve.page_path,
+    COUNT(*) AS download_count,
+    COUNT(DISTINCT ve.session_id) AS unique_sessions,
+    COUNT(DISTINCT vs.visitor_id) AS unique_users,
+    DATE_TRUNC('day', ve.timestamp) AS download_date
+FROM visitor_events ve
+JOIN visitor_sessions vs ON ve.session_id = vs.session_id
+WHERE ve.event_type = 'download'
+GROUP BY ve.event_type, ve.component_id, ve.event_value, ve.page_path, DATE_TRUNC('day', ve.timestamp)
+ORDER BY download_date DESC, download_count DESC;
+
+-- CV download stats specifically
+SELECT 
+    DATE_TRUNC('day', ve.timestamp) AS day,
+    COUNT(*) AS cv_downloads,
+    COUNT(DISTINCT ve.session_id) AS unique_sessions,
+    COUNT(DISTINCT vs.visitor_id) AS unique_users
+FROM visitor_events ve
+JOIN visitor_sessions vs ON ve.session_id = vs.session_id
+WHERE ve.event_type = 'download' AND ve.component_id = 'download-cv'
+GROUP BY DATE_TRUNC('day', ve.timestamp)
+ORDER BY day DESC;
+
+-- Certificate download stats
+SELECT 
+    DATE_TRUNC('day', ve.timestamp) AS day,
+    COUNT(*) AS certificate_downloads,
+    COUNT(DISTINCT ve.session_id) AS unique_sessions,
+    COUNT(DISTINCT vs.visitor_id) AS unique_users
+FROM visitor_events ve
+JOIN visitor_sessions vs ON ve.session_id = vs.session_id
+WHERE ve.event_type = 'download' AND ve.component_id = 'download-certificate'
+GROUP BY DATE_TRUNC('day', ve.timestamp)
+ORDER BY day DESC;
+
+-- Download conversion rate by page
+WITH page_visitors AS (
+    SELECT 
+        page_path, 
+        COUNT(DISTINCT session_id) AS visitor_count
+    FROM visitor_events
+    WHERE event_type = 'pageview'
+    GROUP BY page_path
+),
+page_downloads AS (
+    SELECT 
+        page_path, 
+        COUNT(DISTINCT session_id) AS download_count
+    FROM visitor_events
+    WHERE event_type = 'download'
+    GROUP BY page_path
+)
+SELECT 
+    pv.page_path,
+    pv.visitor_count,
+    COALESCE(pd.download_count, 0) AS download_count,
+    CASE 
+        WHEN pv.visitor_count > 0 THEN ROUND((COALESCE(pd.download_count, 0)::numeric / pv.visitor_count) * 100, 2)
+        ELSE 0
+    END AS conversion_rate
+FROM page_visitors pv
+LEFT JOIN page_downloads pd ON pv.page_path = pd.page_path
+ORDER BY conversion_rate DESC, visitor_count DESC;
+
+-- Track downloads by device type
+SELECT 
+    vs.device_type,
+    vs.is_mobile,
+    COUNT(*) AS download_count,
+    COUNT(DISTINCT ve.session_id) AS unique_sessions
+FROM visitor_events ve
+JOIN visitor_sessions vs ON ve.session_id = vs.session_id
+WHERE ve.event_type = 'download'
+GROUP BY vs.device_type, vs.is_mobile
+ORDER BY download_count DESC;
+
+-- Download trends over time (weekly)
+SELECT 
+    DATE_TRUNC('week', ve.timestamp) AS week,
+    COUNT(CASE WHEN ve.component_id = 'download-cv' THEN 1 ELSE NULL END) AS cv_downloads,
+    COUNT(CASE WHEN ve.component_id = 'download-certificate' THEN 1 ELSE NULL END) AS certificate_downloads,
+    COUNT(CASE WHEN ve.component_id NOT IN ('download-cv', 'download-certificate') THEN 1 ELSE NULL END) AS other_downloads
+FROM visitor_events ve
+WHERE ve.event_type = 'download'
+GROUP BY DATE_TRUNC('week', ve.timestamp)
+ORDER BY week;

@@ -94,6 +94,7 @@ const Hero = () => {
               label="Download CV"
               className="w-full sm:w-auto py-3 px-6"
               variant="secondary"
+              documentType="cv"
             />
           </motion.div>
         </motion.div>
