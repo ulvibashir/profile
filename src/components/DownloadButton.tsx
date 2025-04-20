@@ -20,7 +20,7 @@ const DownloadButton = ({
     <a 
       href={filePath}
       download
-      className={`inline-flex items-center gap-2 rounded-md font-medium transition-colors ${
+      className={`inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors ${
         variant === 'primary' 
           ? 'bg-primary text-white hover:bg-blue-600 py-2 px-4 shadow-md' 
           : 'bg-gray-100 text-gray-800 hover:bg-gray-200 py-2 px-3'

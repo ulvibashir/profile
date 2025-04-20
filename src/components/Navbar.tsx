@@ -25,14 +25,15 @@ const Navbar = () => {
       isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold text-primary">
+        <Link href="/" className="text-xl font-bold text-primary z-20">
           Ismat Samadov
         </Link>
         
-        {/* Mobile menu button */}
+        {/* Mobile menu button - improved z-index */}
         <button 
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-gray-700 focus:outline-none z-20"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMenuOpen ? (
@@ -55,10 +56,10 @@ const Navbar = () => {
         </nav>
       </div>
       
-      {/* Mobile navigation */}
+      {/* Mobile navigation - improved with fixed positioning and better styling */}
       {isMenuOpen && (
-        <nav className="md:hidden px-4 py-2 bg-white shadow-md">
-          <div className="flex flex-col space-y-3">
+        <nav className="md:hidden fixed top-0 left-0 right-0 bottom-0 bg-white z-10 pt-16 pb-6 px-6 h-screen overflow-y-auto">
+          <div className="flex flex-col space-y-6">
             <MobileNavLink href="#home" onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</MobileNavLink>
             <MobileNavLink href="#education" onClick={() => setIsMenuOpen(false)}>Education</MobileNavLink>
@@ -88,7 +89,7 @@ const MobileNavLink = ({ href, children, onClick }: { href: string; children: Re
   return (
     <Link 
       href={href}
-      className="text-gray-700 hover:text-primary transition-colors font-medium block py-2"
+      className="text-gray-800 hover:text-primary transition-colors font-medium text-xl block py-2"
       onClick={onClick}
     >
       {children}

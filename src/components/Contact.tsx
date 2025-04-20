@@ -134,7 +134,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-16 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -143,11 +143,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-12">Get In Touch</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Get In Touch</h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-xl font-bold mb-4 md:mb-6">Contact Information</h3>
               
               <div className="space-y-4">
                 <ContactItem 
@@ -164,8 +164,8 @@ const Contact = () => {
                 />
               </div>
               
-              <div className="mt-8">
-                <p className="text-gray-700">
+              <div className="mt-6 md:mt-8">
+                <p className="text-gray-700 text-sm sm:text-base">
                   Feel free to reach out if you&apos;re looking for a professional with expertise in machine learning, 
                   predictive modeling, and AI solutions. I&apos;m open to new opportunities and collaborations.
                 </p>
@@ -173,7 +173,7 @@ const Contact = () => {
             </div>
             
             <div>
-              <h3 className="text-xl font-bold mb-6">Send a Message</h3>
+              <h3 className="text-xl font-bold mb-4 md:mb-6">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -191,7 +191,7 @@ const Contact = () => {
                     }`}
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
                       <FaExclamationTriangle className="mr-1" size={12} />
                       {errors.name}
                     </p>
@@ -213,7 +213,7 @@ const Contact = () => {
                     }`}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
                       <FaExclamationTriangle className="mr-1" size={12} />
                       {errors.email}
                     </p>
@@ -229,13 +229,13 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={5}
+                    rows={4}
                     className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
                       errors.message ? 'border-red-500' : 'border-gray-300'
                     }`}
                   />
                   {errors.message && (
-                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
                       <FaExclamationTriangle className="mr-1" size={12} />
                       {errors.message}
                     </p>
@@ -251,13 +251,13 @@ const Contact = () => {
                 </button>
                 
                 {error && !isSubmitted && (
-                  <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+                  <div className="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
                     {error}
                   </div>
                 )}
                 
                 {isSubmitted && (
-                  <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+                  <div className="bg-green-100 border border-green-400 text-green-700 px-3 py-2 rounded text-sm">
                     {successMessage}
                   </div>
                 )}
@@ -289,8 +289,8 @@ const ContactItem = ({ icon, label, value, href }: ContactItemProps) => {
         {icon}
       </span>
       <div>
-        <p className="text-sm text-gray-600">{label}</p>
-        <p className="font-medium group-hover:text-primary transition-colors">{value}</p>
+        <p className="text-xs sm:text-sm text-gray-600">{label}</p>
+        <p className="font-medium text-sm sm:text-base group-hover:text-primary transition-colors">{value}</p>
       </div>
     </a>
   )

@@ -10,31 +10,32 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
 }
 
 @layer components {
   .section-title {
-    @apply font-bold mb-6 text-xl md:text-3xl text-[#0070f3];
+    @apply font-bold mb-4 md:mb-6 text-xl md:text-3xl text-[#0070f3];
   }
   
   .section-container {
-    @apply max-w-4xl mx-auto py-10 px-4;
+    @apply max-w-4xl mx-auto py-8 md:py-10 px-4;
   }
   
   .timeline-item {
-    @apply mb-8 relative pl-6 border-l-2 border-gray-300;
+    @apply mb-6 md:mb-8 relative pl-5 md:pl-6 border-l-2 border-gray-300;
   }
   
   .timeline-date {
-    @apply text-sm font-medium text-gray-600 mb-1;
+    @apply text-xs md:text-sm font-medium text-gray-600 mb-1;
   }
   
   .timeline-title {
-    @apply text-lg font-bold mb-2 md:text-xl;
+    @apply text-base md:text-lg font-bold mb-1 md:mb-2 md:text-xl;
   }
   
   .timeline-subtitle {
-    @apply font-medium text-gray-700 mb-2;
+    @apply font-medium text-gray-700 mb-1 md:mb-2 text-sm md:text-base;
   }
   
   .timeline-content {
@@ -42,7 +43,7 @@ body {
   }
   
   .skill-tag {
-    @apply px-3 py-1 rounded-full bg-gray-200 text-gray-800 font-medium text-sm mr-2 mb-2;
+    @apply px-2 md:px-3 py-1 rounded-full bg-gray-200 text-gray-800 font-medium text-xs md:text-sm mr-2 mb-2;
   }
   
   .contact-item {
@@ -50,7 +51,7 @@ body {
   }
   
   .contact-icon {
-    @apply w-6 h-6 mr-3 text-[#0070f3];
+    @apply w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 text-[#0070f3];
   }
 }
 
@@ -58,10 +59,37 @@ body {
 .timeline-item::before {
   content: '';
   position: absolute;
-  width: 1rem;
-  height: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 9999px;
   background-color: #0070f3;
-  left: -0.5625rem;
+  left: -0.4375rem;
   top: 0.25rem;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 640px) {
+  .timeline-item {
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    width: 0.625rem;
+    height: 0.625rem;
+    left: -0.375rem;
+  }
+  
+  /* Improve tap targets for mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Fix potential form element issues on mobile */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
 }

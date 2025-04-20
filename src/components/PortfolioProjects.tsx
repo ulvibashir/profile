@@ -36,7 +36,7 @@ const projectsData = [
 
 const PortfolioProjects = () => {
   return (
-    <section id="portfolio" className="py-20 bg-gray-50">
+    <section id="portfolio" className="py-16 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -45,9 +45,9 @@ const PortfolioProjects = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-12">Portfolio Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Portfolio Projects</h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2">
             {projectsData.map((project, index) => (
               <ProjectCard 
                 key={index}
@@ -84,9 +84,9 @@ const ProjectCard = ({ title, github, url, description, tags, index }: ProjectCa
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="bg-white rounded-lg shadow-md overflow-hidden h-full"
     >
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-3">
-          <h3 className="text-xl font-bold">{title}</h3>
+      <div className="p-4 md:p-6">
+        <div className="flex justify-between items-start mb-2 md:mb-3">
+          <h3 className="text-lg md:text-xl font-bold">{title}</h3>
           <a 
             href={url}
             target="_blank"
@@ -97,12 +97,12 @@ const ProjectCard = ({ title, github, url, description, tags, index }: ProjectCa
             <FaExternalLinkAlt />
           </a>
         </div>
-        <p className="text-gray-700 mb-4">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <p className="text-gray-700 mb-3 md:mb-4 text-sm md:text-base">{description}</p>
+        <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
           {tags.map((tag, i) => (
             <span 
               key={i} 
-              className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+              className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
             >
               {tag}
             </span>

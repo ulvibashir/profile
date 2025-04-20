@@ -43,7 +43,7 @@ const experienceData = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -52,9 +52,9 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-12">Professional Experience</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Professional Experience</h2>
           
-          <div className="space-y-12">
+          <div className="space-y-10 md:space-y-12">
             {experienceData.map((job, index) => (
               <ExperienceItem 
                 key={index}
@@ -92,9 +92,9 @@ const ExperienceItem = ({ title, company, period, responsibilities, index }: Exp
       <div className="timeline-date">{period}</div>
       <h3 className="timeline-title">{title}</h3>
       <h4 className="timeline-subtitle">{company}</h4>
-      <ul className="list-disc pl-5 space-y-2 mt-3">
+      <ul className="list-disc pl-4 md:pl-5 space-y-1 md:space-y-2 mt-3">
         {responsibilities.map((item, i) => (
-          <li key={i} className="timeline-content">{item}</li>
+          <li key={i} className="timeline-content text-sm md:text-base">{item}</li>
         ))}
       </ul>
     </motion.div>
