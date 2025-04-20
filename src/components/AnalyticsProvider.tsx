@@ -1,7 +1,7 @@
 // src/components/AnalyticsProvider.tsx
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
@@ -10,7 +10,7 @@ interface AnalyticsProviderProps {
   children: React.ReactNode
 }
 
-const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
+const AnalyticsContent = () => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [pageLoadTime, setPageLoadTime] = useState<number>(Date.now())
@@ -229,7 +229,19 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     }
   }, [hasTrackedPageView, setupClickTracking, trackPageExit, trackPageView, setPageLoadTime])
 
-  return <>{children}</>
+  return null;
+}
+
+// Main provider component with Suspense boundary
+const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
+  return (
+    <>
+      <Suspense fallback={null}>
+        <AnalyticsContent />
+      </Suspense>
+      {children}
+    </>
+  )
 }
 
 export default AnalyticsProvider
