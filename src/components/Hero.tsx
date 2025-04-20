@@ -10,7 +10,7 @@ const Hero = () => {
 
   useEffect(() => {
     // Check if image exists
-    const img: HTMLImageElement = new Image() // Explicitly type the variable
+    const img: HTMLImageElement = new window.Image() // Use `window.Image`
     img.src = '/ismat-profile.jpg'
     img.onerror = () => {
       console.error('Profile image not found in public directory')
