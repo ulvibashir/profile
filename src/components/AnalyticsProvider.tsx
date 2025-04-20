@@ -1,7 +1,7 @@
 // src/components/AnalyticsProvider.tsx
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
@@ -17,7 +17,7 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
   const [hasTrackedPageView, setHasTrackedPageView] = useState<boolean>(false)
 
   // Get session data
-  const getSessionData = () => {
+  const getSessionData = useCallback(() => {
     // Try to get session ID from cookie, or create a new one
     let sessionId = Cookies.get('session_id')
     let visitorId = Cookies.get('visitor_id')
@@ -33,10 +33,10 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     }
     
     return { sessionId, visitorId }
-  }
+  }, [])
 
   // Track page view
-  const trackPageView = async () => {
+  const trackPageView = useCallback(async () => {
     const { sessionId, visitorId } = getSessionData()
     
     try {
@@ -87,10 +87,10 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     } catch (error) {
       console.error('Error tracking page view:', error)
     }
-  }
+  }, [getSessionData, pathname, searchParams])
 
   // Track user leaving the page
-  const trackPageExit = async () => {
+  const trackPageExit = useCallback(async () => {
     if (!hasTrackedPageView) return
     
     const { sessionId } = getSessionData()
@@ -113,10 +113,10 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     } catch (error) {
       console.error('Error tracking page exit:', error)
     }
-  }
+  }, [getSessionData, hasTrackedPageView, pageLoadTime, pathname])
 
   // Setup click tracking
-  const setupClickTracking = () => {
+  const setupClickTracking = useCallback(() => {
     const handleClick = async (e: MouseEvent) => {
       // Only track clicks on interactive elements
       const target = e.target as HTMLElement
@@ -179,7 +179,7 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
     return () => {
       document.removeEventListener('click', handleClick)
     }
-  }
+  }, [getSessionData, pathname])
 
   // Track page view when the path changes or on initial load
   useEffect(() => {
@@ -195,7 +195,7 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
       clearTimeout(trackingTimeout)
       trackPageExit()
     }
-  }, [pathname, searchParams])
+  }, [pathname, searchParams, trackPageView, trackPageExit])
 
   // Setup click tracking when component mounts
   useEffect(() => {
@@ -227,7 +227,7 @@ const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => {
       document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('beforeunload', handleBeforeUnload)
     }
-  }, [hasTrackedPageView])
+  }, [hasTrackedPageView, setupClickTracking, trackPageExit, trackPageView, setPageLoadTime])
 
   return <>{children}</>
 }

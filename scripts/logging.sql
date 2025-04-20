@@ -2,7 +2,7 @@
 CREATE TABLE visitor_sessions (
     session_id VARCHAR(255) PRIMARY KEY,
     visitor_id VARCHAR(255) NOT NULL,
-    ip_address VARCHAR(45), -- IPv6 can be up to 45 chars
+    ip_address VARCHAR(45),
     user_agent TEXT,
     referrer TEXT,
     utm_source VARCHAR(255),
@@ -28,13 +28,13 @@ CREATE TABLE visitor_sessions (
 CREATE TABLE visitor_events (
     event_id SERIAL PRIMARY KEY,
     session_id VARCHAR(255) NOT NULL,
-    event_type VARCHAR(50) NOT NULL, -- 'pageview', 'click', 'scroll', 'form_submit', etc.
+    event_type VARCHAR(50) NOT NULL,
     page_path VARCHAR(255),
     page_title VARCHAR(255),
-    component_id VARCHAR(255), -- For tracking specific components
-    event_value TEXT, -- Can store JSON or other data related to the event
+    component_id VARCHAR(255),
+    event_value TEXT,
     timestamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    duration_ms INTEGER, -- For tracking time spent on page
+    duration_ms INTEGER,
     FOREIGN KEY (session_id) REFERENCES visitor_sessions(session_id)
 );
 

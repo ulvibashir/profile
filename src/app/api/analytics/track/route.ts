@@ -1,6 +1,6 @@
 // src/app/api/analytics/track/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import UAParser from 'ua-parser-js';
+import { UAParser } from 'ua-parser-js';
 import { trackSession, trackEvent, getGeoInfo, parseUtmParams } from '@/lib/analytics';
 
 export async function POST(request: NextRequest) {

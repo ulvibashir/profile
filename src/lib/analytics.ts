@@ -1,6 +1,6 @@
 // src/lib/analytics.ts
 import { createClient, VercelClient } from '@vercel/postgres';
-import UAParser from 'ua-parser-js';
+import { UAParser } from 'ua-parser-js';
 
 // Types for our analytics data
 export interface VisitorSession {
@@ -56,7 +56,12 @@ async function executeQuery<T>(
 }
 
 // Parse user agent to get device, browser, and OS information
-export function parseUserAgent(userAgentString: string | undefined): any {
+export function parseUserAgent(userAgentString: string | undefined): {
+  deviceType?: string;
+  browser?: string;
+  os?: string;
+  isMobile?: boolean;
+} {
   if (!userAgentString) return {};
   
   const parser = new UAParser(userAgentString);
@@ -64,8 +69,8 @@ export function parseUserAgent(userAgentString: string | undefined): any {
   
   return {
     deviceType: result.device.type || 'desktop',
-    browser: `${result.browser.name} ${result.browser.version}`,
-    os: `${result.os.name} ${result.os.version}`,
+    browser: `${result.browser.name || ''} ${result.browser.version || ''}`.trim(),
+    os: `${result.os.name || ''} ${result.os.version || ''}`.trim(),
     isMobile: result.device.type === 'mobile'
   };
 }
@@ -149,7 +154,8 @@ export function parseUtmParams(url: string): Record<string, string> {
       utmTerm: parsedUrl.searchParams.get('utm_term') || undefined,
       utmContent: parsedUrl.searchParams.get('utm_content') || undefined,
     };
-  } catch (e) {
+  } catch (_) {
+    // Ignore URL parsing errors
     return {};
   }
 }
@@ -166,8 +172,8 @@ export async function getGeoInfo(ip: string): Promise<Record<string, string>> {
       region: data.region,
       city: data.city
     };
-  } catch (e) {
-    console.error('Error fetching geolocation:', e);
+  } catch (error) {
+    console.error('Error fetching geolocation:', error);
     return {};
   }
 }
