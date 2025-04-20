@@ -21,9 +21,8 @@ export async function POST(request: NextRequest) {
       referrer
     } = data;
 
-    // Get IP address from request
-    const ip = request.ip || 
-               request.headers.get('x-forwarded-for')?.split(',')[0] || 
+    // Get IP address from request headers
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
                request.headers.get('x-real-ip') || 
                '127.0.0.1';
 
