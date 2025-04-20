@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { defaultMetadata } from '@/lib/seo'
 import { PersonStructuredData, WebsiteStructuredData } from '@/components/StructuredData'
+import AnalyticsProvider from '@/components/AnalyticsProvider'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -30,7 +31,10 @@ export default function RootLayout({
         {/* Add structured data */}
         <PersonStructuredData />
         <WebsiteStructuredData />
-        {children}
+        {/* Add analytics provider */}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
       </body>
     </html>
   )
