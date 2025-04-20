@@ -144,7 +144,7 @@ export async function trackEvent(eventData: VisitorEvent): Promise<void> {
 }
 
 // Helper function to parse UTM parameters from URL
-export function parseUtmParams(url: string): Record<string, string> {
+export function parseUtmParams(url: string): Record<string, string | undefined> {
   try {
     const parsedUrl = new URL(url);
     return {
