@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaExclamationTriangle } from 'react-icons/fa'
+import { FaExclamationTriangle } from 'react-icons/fa'
 
 interface FormData {
   name: string;
@@ -141,35 +141,14 @@ const Contact = () => {
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Get In Touch</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 md:mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <ContactItem 
-                  icon={<FaEnvelope />}
-                  label="Email"
-                  value="ismetsemedov@gmail.com"
-                  href="mailto:ismetsemedov@gmail.com"
-                />
-                <ContactItem 
-                  icon={<FaPhone />}
-                  label="Phone"
-                  value="+994 50 478 7463"
-                  href="tel:+994504787463"
-                />
-              </div>
-              
-              <div className="mt-6 md:mt-8">
-                <p className="text-gray-700 text-sm sm:text-base">
-                  Feel free to reach out if you&apos;re looking for a professional with expertise in machine learning, 
-                  predictive modeling, and AI solutions. I&apos;m open to new opportunities and collaborations.
-                </p>
-              </div>
-            </div>
-            
+          <div className="max-w-md mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4 md:mb-6">Send a Message</h3>
+              
+              <p className="text-gray-700 text-sm sm:text-base mb-6">
+                Feel free to reach out if you&apos;re looking for a professional with expertise in machine learning, 
+                predictive modeling, and AI solutions. I&apos;m open to new opportunities and collaborations.
+              </p>
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
@@ -266,30 +245,6 @@ const Contact = () => {
   )
 }
 
-interface ContactItemProps {
-  icon: React.ReactNode
-  label: string
-  value: string
-  href: string
-}
-
-const ContactItem = ({ icon, label, value, href }: ContactItemProps) => {
-  return (
-    <a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="contact-item group"
-    >
-      <span className="contact-icon">
-        {icon}
-      </span>
-      <div>
-        <p className="text-xs sm:text-sm text-gray-600">{label}</p>
-        <p className="font-medium text-sm sm:text-base group-hover:text-primary transition-colors">{value}</p>
-      </div>
-    </a>
-  )
-}
+// ContactItem component removed as it's no longer needed
 
 export default Contact
