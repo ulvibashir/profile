@@ -114,7 +114,6 @@ npm run dev
 Feel free to reach out if you're looking for a data professional with experience in machine learning, fraud detection, and business intelligence. I'm open to new opportunities and collaborations.
 
 - Email: ismetsemedov@gmail.com
-- Phone: +994 50 478 7463
 
 ## 📄 License
 
