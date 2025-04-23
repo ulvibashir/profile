@@ -110,7 +110,7 @@ const Contact = () => {
       
       // Clear form and show success
       setFormData({ name: '', email: '', message: '' })
-      setSuccessMessage("Your message has been sent successfully! I'll get back to you soon.")
+      setSuccessMessage("Your message has been sent successfully! I&apos;ll get back to you soon.")
       setIsSubmitted(true)
       setTimeout(() => setIsSubmitted(false), 5000)
     } catch (err) {
@@ -122,7 +122,7 @@ const Contact = () => {
       
       // Fallback message if the API fails
       setSuccessMessage(
-        "Thank you for your message. I'll review it as soon as possible."
+                              "Thank you for your message. I&apos;ll review it as soon as possible."
       )
       setIsSubmitted(true)
       
