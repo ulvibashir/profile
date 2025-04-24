@@ -119,7 +119,7 @@ const Contact = () => {
       // Fallback message if the API fails
       setSuccessMessage(
         "While there was an issue with our contact system, " +
-        "you can reach me directly at ismetsemedov@gmail.com or +994 50 478 7463."
+        "you can reach me directly at ismetsemedov@gmail.com."
       )
       setIsSubmitted(true)
       
@@ -244,7 +244,5 @@ const Contact = () => {
     </section>
   )
 }
-
-// ContactItem component removed as it's no longer needed
 
 export default Contact

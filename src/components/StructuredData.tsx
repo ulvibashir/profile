@@ -48,7 +48,6 @@ export function PersonStructuredData() {
       'Predictive Modeling',
     ],
     email: 'mailto:ismetsemedov@gmail.com',
-    telephone: '+994504787463',
   };
 
   return (
