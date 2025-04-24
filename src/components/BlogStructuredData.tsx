@@ -38,11 +38,7 @@ export function BlogArticleStructuredData({
     publisher: {
       '@type': 'Person',
       name: author,
-      url: authorUrl,
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://ismatsamadov.com/ismat-profile.jpg'
-      }
+      url: authorUrl
     },
     url: url,
     mainEntityOfPage: {

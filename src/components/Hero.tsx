@@ -2,22 +2,8 @@
 
 import { motion } from 'framer-motion'
 import DownloadButton from './DownloadButton'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
 
 const Hero = () => {
-  const [imgError, setImgError] = useState(false)
-
-  useEffect(() => {
-    // Check if image exists
-    const img = new window.Image()
-    img.src = '/ismat-profile.jpg'
-    img.onerror = () => {
-      console.error('Profile image not found in public directory')
-      setImgError(true)
-    }
-  }, [])
-
   return (
     <section
       id="home"
@@ -30,27 +16,6 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-          {/* Profile image moved above name for better mobile flow */}
-          <div className="mb-6 flex justify-center">
-            <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-primary">
-              {imgError ? (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
-                  IS
-                </div>
-              ) : (
-                <Image
-                  src="/ismat-profile.jpg"
-                  alt="Ismat Samadov - Data & Fraud Analytics Professional"
-                  fill
-                  sizes="(max-width: 768px) 112px, 128px"
-                  priority
-                  className="object-cover"
-                  onError={() => setImgError(true)}
-                />
-              )}
-            </div>
-          </div>
-
           {/* Name and title - improved responsive text sizes */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900">
             <span className="text-primary">Ismat</span> Samadov

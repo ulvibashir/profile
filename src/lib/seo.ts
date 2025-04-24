@@ -171,7 +171,6 @@ export const generatePersonSchema = () => {
     name: 'Ismat Samadov',
     description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
     url: 'https://ismat.pro',
-    image: 'https://ismat.pro/ismat-profile.jpg',
     jobTitle: 'Fraud Analyst',
     worksFor: {
       '@type': 'Organization',
