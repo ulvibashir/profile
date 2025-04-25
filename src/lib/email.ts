@@ -11,7 +11,7 @@ export async function sendEmail({ subject, text, html }: EmailOptions) {
   const resend = new Resend(process.env.RESEND_API_KEY || '');
   
   // Handle the case where environment variables might be undefined
-  const fromEmail = process.env.NOTIFICATION_FROM_EMAIL || 'noreply@example.com';
+  const fromEmail = process.env.NOTIFICATION_FROM_EMAIL || 'noreply@ismat.pro';
   const toEmail = process.env.NOTIFICATION_TO_EMAIL || 'ismetsemedov@gmail.com';
   
   return resend.emails.send({
