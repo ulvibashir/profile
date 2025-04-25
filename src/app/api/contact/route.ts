@@ -16,6 +16,8 @@ export async function POST(request: Request) {
       );
     }
     
+    console.log('Contact form submission received:', { name, email });
+    
     // Create a client to connect to the database
     const client = createClient();
     await client.connect();
@@ -26,11 +28,14 @@ export async function POST(request: Request) {
       VALUES (${name}, ${email}, ${message}, ${createdAt || new Date().toISOString()})
     `;
     
+    console.log('Contact message saved to database');
+    
     // Send email notification
-    await sendEmail({
-      subject: `New contact message from ${name}`,
-      text: `You received a new contact message from your portfolio website:
-      
+    try {
+      const emailResult = await sendEmail({
+        subject: `New contact message from ${name}`,
+        text: `You received a new contact message from your portfolio website:
+        
 Name: ${name}
 Email: ${email}
 Message:
@@ -38,7 +43,14 @@ Message:
 ${message}
 
 Sent at: ${new Date().toLocaleString()}`,
-    });
+      });
+      
+      console.log('Email notification sent successfully', emailResult);
+    } catch (emailError) {
+      console.error('Failed to send email notification:', emailError);
+      // Continue execution - we don't want to fail the API response
+      // just because the email didn't send
+    }
     
     // Close the connection
     await client.end();
@@ -49,7 +61,7 @@ Sent at: ${new Date().toLocaleString()}`,
       { status: 201 }
     );
   } catch (error) {
-    console.error('Error saving contact message:', error);
+    console.error('Error processing contact message:', error);
     
     // Return an error response
     return NextResponse.json(
