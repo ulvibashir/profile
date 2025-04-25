@@ -6,7 +6,7 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 const projectsData = [
   {
     title: 'iHealth',
-    github: 'https://github.com/Ismat-Samadov/ihealth',
+    github: 'https://github.com/Ismat-Samadov/intelligent_healthcare',
     url: 'https://www.ihealth.ink/',
     description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
     tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
