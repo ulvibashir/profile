@@ -8,7 +8,7 @@ interface EmailOptions {
 }
 
 export async function sendEmail({ subject, text, html }: EmailOptions) {
-  const resend = new Resend(process.env.RESEND_API_KEY || 're_Dgscvft1_LN8hBqxikt3Bq7hL1zRXaQPq');
+  const resend = new Resend(process.env.RESEND_API_KEY || '');
   
   // Handle the case where environment variables might be undefined
   const fromEmail = process.env.NOTIFICATION_FROM_EMAIL || 'noreply@ismat.pro';
