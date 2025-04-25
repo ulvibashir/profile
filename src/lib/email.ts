@@ -1,4 +1,4 @@
-// Using Resend
+// src/lib/email.ts
 import { Resend } from 'resend';
 
 interface EmailOptions {
@@ -8,11 +8,15 @@ interface EmailOptions {
 }
 
 export async function sendEmail({ subject, text, html }: EmailOptions) {
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY || '');
+  
+  // Handle the case where environment variables might be undefined
+  const fromEmail = process.env.NOTIFICATION_FROM_EMAIL || 'noreply@example.com';
+  const toEmail = process.env.NOTIFICATION_TO_EMAIL || 'ismetsemedov@gmail.com';
   
   return resend.emails.send({
-    from: `Contact Form <${process.env.NOTIFICATION_FROM_EMAIL}>`,
-    to: process.env.NOTIFICATION_TO_EMAIL,
+    from: `Contact Form <${fromEmail}>`,
+    to: toEmail, // Now guaranteed to be a string
     subject,
     text,
     html: html || text.replace(/\n/g, '<br>'),
