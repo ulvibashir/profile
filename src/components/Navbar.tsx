@@ -50,7 +50,7 @@ const Navbar = () => {
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#education">Education</NavLink>
-          <NavLink href="#tech-profiles">Tech Profiles</NavLink>
+          <NavLink href="#tech-profiles">Profiles</NavLink>
           <NavLink href="#portfolio">Projects</NavLink>
           <NavLink href="#contact">Contact</NavLink>
         </nav>
