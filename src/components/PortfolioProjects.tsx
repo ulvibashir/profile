@@ -5,32 +5,32 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 
 const projectsData = [
   {
-    title: 'iHealth',
-    github: 'https://github.com/Ismat-Samadov/intelligent_healthcare',
-    url: 'https://www.ihealth.ink/',
-    description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
-    tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
+    title: 'NeuralHealth',
+    github: 'https://github.com/Ismat-Samadov/neuralhealth',
+    url: 'https://www.neuralhealth.ai/',
+    description: 'Deep learning system for medical image analysis with 94% accuracy in early disease detection using convolutional neural networks',
+    tags: ['Computer Vision', 'Medical AI', 'PyTorch', 'Transfer Learning']
   },
   {
-    title: 'Trackio',
-    github: 'https://github.com/Ismat-Samadov/trackio',
-    url: 'https://www.trackio.art/',
-    description: 'AI-enhanced project management tool with automated task prioritization and resource optimization algorithms',
-    tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
+    title: 'PredictFlow',
+    github: 'https://github.com/Ismat-Samadov/predictflow',
+    url: 'https://www.predictflow.dev/',
+    description: 'Automated machine learning pipeline for time series forecasting with feature engineering and model selection optimization',
+    tags: ['Time Series', 'AutoML', 'Feature Engineering', 'Ensemble Methods']
   },
   {
-    title: 'Jobry',
-    github: 'https://github.com/Ismat-Samadov/jobry',
-    url: 'https://www.jobry.me/',
-    description: 'Career analytics platform with ML-based job matching and skill gap analysis for professional development',
-    tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
+    title: 'SentimentLens',
+    github: 'https://github.com/Ismat-Samadov/sentimentlens',
+    url: 'https://www.sentimentlens.io/',
+    description: 'NLP system for real-time customer feedback analysis and sentiment prediction using transformer-based language models',
+    tags: ['NLP', 'BERT', 'Sentiment Analysis', 'Real-time Processing']
   },
   {
-    title: 'MyFrog',
-    github: 'https://github.com/Ismat-Samadov/myfrog',
-    url: 'https://www.myfrog.me/',
-    description: 'ML-powered personal finance management platform with spending prediction and automated budget optimization',
-    tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
+    title: 'FraudGuard',
+    github: 'https://github.com/Ismat-Samadov/fraudguard',
+    url: 'https://www.fraudguard.ai/',
+    description: 'Anomaly detection system for financial transactions using unsupervised learning and graph neural networks',
+    tags: ['Anomaly Detection', 'Graph Neural Networks', 'Financial ML', 'Real-time']
   }
 ]
 
@@ -45,7 +45,7 @@ const PortfolioProjects = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Portfolio Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Machine Learning Projects</h2>
           
           <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2">
             {projectsData.map((project, index) => (

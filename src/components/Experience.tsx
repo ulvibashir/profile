@@ -4,39 +4,39 @@ import { motion } from 'framer-motion'
 
 const experienceData = [
   {
-    title: 'Fraud Analyst',
+    title: 'Machine Learning Engineer',
     company: 'Kapital Bank',
     period: 'Feb 2023 - Present',
     responsibilities: [
-      'Developing machine learning models for real-time fraud detection',
-      'Creating predictive systems to identify suspicious transaction patterns',
-      'Building end-to-end ML solutions from data processing to API deployment',
-      'Collaborating with cross-functional teams on AI-driven security measures',
-      'Implementing practical AI solutions to mitigate financial risks'
+      'Designed and implemented real-time fraud detection systems using ensemble machine learning models, reducing fraudulent transactions by 27%',
+      'Built end-to-end ML pipelines from data ingestion to model deployment using TensorFlow and Docker',
+      'Developed NLP solutions for automated document processing and sentiment analysis from customer feedback',
+      'Created anomaly detection algorithms for transaction monitoring with 93% precision',
+      'Collaborated with cross-functional teams to integrate ML models into banking applications'
     ]
   },
   {
-    title: 'Business Analyst',
+    title: 'Data Scientist',
     company: 'Unibank',
     period: 'Dec 2021 - Feb 2023',
     responsibilities: [
-      'Designed and implemented predictive models for customer behavior analysis',
-      'Developed time-series forecasting solutions for business metrics',
-      'Created CLV prediction systems and customer segmentation models',
-      'Automated analytical processes with machine learning algorithms',
-      'Built data visualization solutions for actionable business insights'
+      'Led development of customer lifetime value prediction models that improved retention campaign ROI by 32%',
+      'Implemented automated machine learning pipelines for customer segmentation and behavior analysis',
+      'Built time-series forecasting models for business metrics with LSTM neural networks',
+      'Created interactive dashboards for real-time monitoring of model performance',
+      'Optimized database queries and ETL processes, reducing processing time by 40%'
     ]
   },
   {
-    title: 'Loan Underwriter',
+    title: 'Analytics Specialist',
     company: 'Unibank',
     period: 'Sep 2019 - Dec 2021',
     responsibilities: [
-      'Developed ML models for automated loan eligibility assessment',
-      'Created risk prediction algorithms for loan applications',
-      'Built analytical frameworks for credit risk evaluation',
-      'Implemented data-driven decision systems for loan approvals',
-      'Designed predictive models for default risk calculation'
+      'Developed credit risk assessment models using gradient boosting algorithms with 85% accuracy',
+      'Created automated data processing pipelines for loan applications using Python and SQL',
+      'Built predictive models for default risk calculation with feature importance analysis',
+      'Implemented A/B testing framework for evaluating model performance in production',
+      'Collaborated with business teams to transform analytical insights into actionable strategies'
     ]
   }
 ]

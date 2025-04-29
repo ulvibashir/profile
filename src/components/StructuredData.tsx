@@ -4,9 +4,9 @@ export function PersonStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Ismat Samadov',
-    description: 'Data and Fraud Analytics Professional with expertise in machine learning, predictive modeling, and full-stack development',
+    description: 'Machine Learning Engineer & Analytics Professional specializing in deep learning, NLP, computer vision, and predictive analytics',
     url: 'https://ismat.pro',
-    jobTitle: 'Fraud Analyst',
+    jobTitle: 'Machine Learning Engineer',
     worksFor: {
       '@type': 'Organization',
       name: 'Kapital Bank',
@@ -39,13 +39,17 @@ export function PersonStructuredData() {
       'https://leetcode.com/u/ismetsemedov/'
     ],
     knowsAbout: [
-      'Data Analysis',
       'Machine Learning',
-      'Fraud Detection',
-      'Business Intelligence',
-      'Python Programming',
-      'SQL',
-      'Predictive Modeling',
+      'Deep Learning',
+      'Natural Language Processing',
+      'Computer Vision',
+      'Time Series Analysis',
+      'Predictive Analytics',
+      'Neural Networks',
+      'TensorFlow',
+      'PyTorch',
+      'Feature Engineering',
+      'ML Operations',
     ],
     email: 'mailto:ismetsemedov@gmail.com',
   };
@@ -96,10 +100,11 @@ export function ProjectStructuredData({
     },
     programmingLanguage: {
       '@type': 'ComputerLanguage',
-      name: 'Python, TypeScript, SQL'
+      name: 'Python, TensorFlow, PyTorch'
     },
     codeRepository: url,
     codeSampleType: 'full',
+    applicationCategory: 'Machine Learning',
   };
 
   return (
@@ -117,9 +122,9 @@ export function WebsiteStructuredData() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Ismat Samadov | Analyst & Engineer',
-    url: 'https://ismatsamadov.com',
-    description: 'Professional portfolio of Ismat Samadov, an Analyst & Engineer specializing in machine learning, predictive modeling, and full-stack development',
+    name: 'Ismat Samadov | Machine Learning Engineer & Analytics Professional',
+    url: 'https://ismat.pro',
+    description: 'Professional portfolio of Ismat Samadov, a Machine Learning Engineer specializing in deep learning, NLP, computer vision, and predictive analytics',
     potentialAction: {
       '@type': 'SearchAction',
       target: {

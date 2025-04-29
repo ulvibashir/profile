@@ -16,27 +16,28 @@ const Hero = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center"
         >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900">
-          <span className="text-primary">Ismat</span> Samadov
-        </h1>
-        <p className="text-lg sm:text-xl md:text-2xl font-medium mb-4 text-gray-700">
-          Machine Learning Engineer & Analytics Professional
-        </p>
-        <p className="text-md sm:text-lg font-medium mb-6 text-gray-700">
-          Specializing in AI Systems & Predictive Models
-        </p>
-        
-        {/* Description - improved text size and spacing */}
-        <div className="mb-8">
-          <p className="text-gray-600 mb-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-            Building and deploying machine learning systems with expertise in model architecture, 
-            MLOps, and production-ready AI solutions that drive business value.
+          {/* Name and title - improved responsive text sizes */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900">
+            <span className="text-primary">Ismat</span> Samadov
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl font-medium mb-4 text-gray-700">
+            Machine Learning Engineer & Analytics Professional
           </p>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-            Based in Baku, Azerbaijan with experience in fraud detection, deep learning, 
-            and end-to-end ML engineering across multiple industries.
+          <p className="text-md sm:text-lg font-medium mb-6 text-gray-700">
+            Predictive Modeling | AI Solutions | Data Engineering
           </p>
-        </div>
+
+          {/* Description - improved text size and spacing */}
+          <div className="mb-8">
+            <p className="text-gray-600 mb-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
+              Building end-to-end machine learning systems that transform data into actionable insights
+              and drive measurable business outcomes.
+            </p>
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
+              Specialized in developing production-ready ML models with expertise in predictive analytics,
+              natural language processing, and ML pipeline automation.
+            </p>
+          </div>
 
           {/* Buttons - improved for mobile */}
           <motion.div

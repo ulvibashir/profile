@@ -4,33 +4,33 @@ import { motion } from 'framer-motion'
 import { FaCode, FaDatabase, FaChartBar, FaTools } from 'react-icons/fa'
 
 const skillsData = {
-  dataScience: [
-    'Machine Learning', 
-    'Predictive Modeling', 
-    'Time Series Analysis',
-    'NLP',
-    'Deep Learning'
+  machineLearning: [
+    'Deep Learning', 
+    'Natural Language Processing', 
+    'Computer Vision',
+    'Time Series Forecasting',
+    'Reinforcement Learning'
+  ],
+  dataEngineering: [
+    'ETL Pipelines',
+    'Data Warehousing',
+    'Feature Engineering',
+    'ML Ops',
+    'Big Data Processing'
   ],
   technicalSkills: [
     'Python',
     'SQL',
-    'FastAPI',
-    'Full-Stack Development',
-    'DevOps'
+    'TensorFlow/PyTorch',
+    'Scikit-learn',
+    'Cloud ML (AWS/Azure)'
   ],
-  analytics: [
-    'Customer Analytics', 
-    'Financial Modeling',
-    'CLV Prediction',
-    'Risk Assessment',
-    'Fraud Detection'
-  ],
-  projects: [
-    'Real-time ML Systems', 
-    'End-to-end AI Solutions',
-    'API Development',
-    'Budget Forecasting',
-    'NLP Applications'
+  businessAnalytics: [
+    'Predictive Analytics', 
+    'Customer Segmentation',
+    'Churn Prevention',
+    'Fraud Detection',
+    'Risk Modeling'
   ]
 }
 
@@ -49,30 +49,30 @@ const Skills = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8">
             <SkillCategory 
-              title="Data Science"
+              title="Machine Learning"
               icon={<FaChartBar />}
-              skills={skillsData.dataScience}
+              skills={skillsData.machineLearning}
               delay={0}
+            />
+            
+            <SkillCategory 
+              title="Data Engineering"
+              icon={<FaDatabase />}
+              skills={skillsData.dataEngineering}
+              delay={0.1}
             />
             
             <SkillCategory 
               title="Technical Skills"
               icon={<FaCode />}
               skills={skillsData.technicalSkills}
-              delay={0.1}
-            />
-            
-            <SkillCategory 
-              title="Analytics"
-              icon={<FaDatabase />}
-              skills={skillsData.analytics}
               delay={0.2}
             />
             
             <SkillCategory 
-              title="Project Areas"
+              title="Business Analytics"
               icon={<FaTools />}
-              skills={skillsData.projects}
+              skills={skillsData.businessAnalytics}
               delay={0.3}
             />
           </div>

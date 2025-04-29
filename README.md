@@ -1,9 +1,8 @@
-# Professional Portfolio
+# Machine Learning Engineer & Analytics Professional Portfolio
 
-A modern, responsive professional portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This site showcases my expertise in machine learning, predictive modeling, data analytics, and fraud detection.
+A modern, responsive professional portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This site showcases my expertise in machine learning, deep learning, natural language processing, and building end-to-end ML solutions.
 
 ## 🔍 [Live Demo](https://ismat.pro)
-
 
 ## ✨ Features
 
@@ -11,7 +10,7 @@ A modern, responsive professional portfolio website built with Next.js 15, TypeS
 - **Modern UI/UX**: Clean design with smooth animations using Framer Motion
 - **SEO Optimized**: Structured data, optimized metadata, and semantic HTML
 - **Performance Focused**: Optimized images, fonts, and rendering strategies
-- **Interactive Elements**: Dynamic sections for skills, experience, and projects
+- **Interactive Elements**: Dynamic sections for ML skills, experience, and projects
 - **Contact Form**: Form with validation that saves messages to a database
 
 ## 🛠️ Tech Stack
@@ -28,18 +27,19 @@ A modern, responsive professional portfolio website built with Next.js 15, TypeS
 
 ## 📚 Professional Background
 
-I am a Data and Fraud Analytics Professional with expertise in:
+I am a Machine Learning Engineer & Analytics Professional with expertise in:
 
-- **Machine Learning**: Developing predictive models and ML systems
-- **Fraud Detection**: Identifying patterns in financial transactions
-- **Business Intelligence**: Creating data-driven insights and strategies
-- **Full-Stack Development**: Building end-to-end solutions
+- **Deep Learning**: Building and deploying neural network models for various applications
+- **Natural Language Processing**: Creating models for text analysis, sentiment analysis, and document classification
+- **Computer Vision**: Developing image recognition and object detection systems
+- **Time Series Analysis**: Forecasting and anomaly detection for sequential data
+- **ML Operations**: Automating ML pipelines and deploying models to production
 
 ### 💼 Experience
 
-- **Fraud Analyst** at Kapital Bank (2023-Present)
-- **Business Analyst** at Unibank (2021-2023)
-- **Loan Underwriter** at Unibank (2019-2021)
+- **Machine Learning Engineer** at Kapital Bank (2023-Present)
+- **Data Scientist** at Unibank (2021-2023)
+- **Analytics Specialist** at Unibank (2019-2021)
 
 ### 🎓 Education & Certifications
 
@@ -47,26 +47,35 @@ I am a Data and Fraud Analytics Professional with expertise in:
 - **Bachelor's in Management of Industry** - Mingachevir State University
 - **Oracle Database SQL Certified Associate** (2022)
 
-## 🚀 Portfolio Projects
+## 🚀 Machine Learning Projects
 
-- **iHealth**: Healthcare analytics platform with ML-powered patient outcome prediction
-- **Trackio**: AI-enhanced project management tool with resource optimization algorithms
-- **Jobry**: Career analytics platform with ML-based job matching and skill gap analysis
-- **MyFrog**: ML-powered personal finance management platform with spending prediction
+- **NeuralHealth**: Deep learning system for medical image analysis using convolutional neural networks
+- **PredictFlow**: Automated machine learning pipeline for time series forecasting with feature engineering
+- **SentimentLens**: NLP system for real-time customer feedback analysis using transformer-based models
+- **FraudGuard**: Anomaly detection system using unsupervised learning and graph neural networks
 
 ## 👨‍💻 Technical Skills
 
-### Languages & Tools
-- Python, SQL, TypeScript/JavaScript
-- FastAPI, Next.js, React
-- NumPy, Pandas, Scikit-learn, TensorFlow
-- Oracle Database, PostgreSQL
-
 ### Machine Learning & AI
-- Predictive Modeling
+- Deep Learning (CNN, RNN, Transformers)
 - Natural Language Processing
+- Computer Vision
 - Time Series Analysis
-- Deep Learning
+- Reinforcement Learning
+
+### Data Engineering
+- ETL Pipelines
+- Data Warehousing
+- Feature Engineering
+- ML Ops
+- Big Data Processing
+
+### Languages & Tools
+- Python, SQL, TensorFlow, PyTorch
+- Scikit-learn, Pandas, NumPy
+- Docker, Kubernetes
+- Cloud ML (AWS/Azure)
+- Git, CI/CD
 
 ## 🔗 Tech Profiles
 
@@ -77,9 +86,9 @@ I am a Data and Fraud Analytics Professional with expertise in:
 - [Kaggle](https://www.kaggle.com/ismetsemedov)
 - [LeetCode](https://leetcode.com/u/ismetsemedov/)
 
-## 🧩 About My Online Presence
+## 🧩 About My Professional Focus
 
-I maintain this portfolio as an independent online profile that allows me to showcase my professional work and skills in a focused manner, aligned with my values and goals. I've intentionally removed my presence from social media platforms to maintain focus and productivity.
+I specialize in developing end-to-end machine learning solutions that solve real-world problems and generate measurable business value. My expertise spans the full ML lifecycle - from data preprocessing and feature engineering to model development, evaluation, and deployment to production environments.
 
 ## 📝 Project Structure
 
@@ -111,7 +120,7 @@ npm run dev
 
 ## 📬 Contact
 
-Feel free to reach out if you're looking for a data professional with experience in machine learning, fraud detection, and business intelligence. I'm open to new opportunities and collaborations.
+Feel free to reach out if you're looking for a Machine Learning Engineer with experience in deep learning, NLP, computer vision, and building production-ready ML systems. I'm open to challenging opportunities and collaborations.
 
 - Email: ismetsemedov@gmail.com
 
