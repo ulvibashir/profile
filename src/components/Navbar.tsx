@@ -48,10 +48,10 @@ const Navbar = () => {
         <nav className="hidden md:flex space-x-6">
           <NavLink href="#home">Home</NavLink>
           <NavLink href="#experience">Experience</NavLink>
-          <NavLink href="#skills">ML Skills</NavLink>
+          <NavLink href="#skills">Professional Skills</NavLink>
           <NavLink href="#education">Education</NavLink>
           <NavLink href="#tech-profiles">Tech Profiles</NavLink>
-          <NavLink href="#portfolio">ML Projects</NavLink>
+          <NavLink href="#portfolio">Portfolio Projects</NavLink>
           <NavLink href="#contact">Contact</NavLink>
         </nav>
       </div>
