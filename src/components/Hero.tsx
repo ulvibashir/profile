@@ -24,18 +24,18 @@ const Hero = () => {
             Machine Learning Engineer & Analytics Professional
           </p>
           <p className="text-md sm:text-lg font-medium mb-6 text-gray-700">
-            Predictive Modeling | AI Solutions | Data Engineering
+            SQL | Data Analysis | Aspiring Machine Learning Specialist
           </p>
 
           {/* Description - improved text size and spacing */}
           <div className="mb-8">
             <p className="text-gray-600 mb-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-              Building end-to-end machine learning systems that transform data into actionable insights
-              and drive measurable business outcomes.
+              Combining strong SQL database skills with a passion for data analysis and machine learning
+              to extract meaningful insights from complex datasets.
             </p>
             <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-              Specialized in developing production-ready ML models with expertise in predictive analytics,
-              natural language processing, and ML pipeline automation.
+              Currently focusing on developing ML skills through self-study and practical projects,
+              while applying analytical expertise to solve real business challenges.
             </p>
           </div>
 

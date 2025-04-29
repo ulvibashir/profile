@@ -27,19 +27,19 @@ A modern, responsive professional portfolio website built with Next.js 15, TypeS
 
 ## 📚 Professional Background
 
-I am a Machine Learning Engineer & Analytics Professional with expertise in:
+I am a SQL Developer & Analytics Professional with a passion for machine learning and data science. My focus areas include:
 
-- **Deep Learning**: Building and deploying neural network models for various applications
-- **Natural Language Processing**: Creating models for text analysis, sentiment analysis, and document classification
-- **Computer Vision**: Developing image recognition and object detection systems
-- **Time Series Analysis**: Forecasting and anomaly detection for sequential data
-- **ML Operations**: Automating ML pipelines and deploying models to production
+- **SQL Development**: Creating efficient queries, stored procedures, and database solutions
+- **Data Analytics**: Extracting insights from complex datasets to drive business decisions
+- **Machine Learning**: Developing skills in predictive modeling, classification, and regression
+- **Business Intelligence**: Building dashboards and visualization tools to communicate insights
+- **Process Automation**: Streamlining data workflows and reporting processes
 
 ### 💼 Experience
 
-- **Machine Learning Engineer** at Kapital Bank (2023-Present)
-- **Data Scientist** at Unibank (2021-2023)
-- **Analytics Specialist** at Unibank (2019-2021)
+- **SQL Developer** at Kapital Bank (2023-Present)
+- **Business Analytics** at Unibank (2021-2023)
+- **Underwriter** at Unibank (2019-2021)
 
 ### 🎓 Education & Certifications
 
