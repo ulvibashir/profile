@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGraduationCap } from 'react-icons/fa'
+import { FaGraduationCap, FaExternalLinkAlt } from 'react-icons/fa'
 import DownloadButton from './DownloadButton'
 
 const educationData = [
@@ -25,7 +25,8 @@ const certificationData = [
     issuer: 'Oracle',
     id: '290631207OCASQL12C',
     date: 'May 2022',
-    pdfUrl: '/OCA.pdf'
+    pdfUrl: '/OCA.pdf',
+    verificationUrl: 'https://catalog-education.oracle.com/apex/f?p=1010:2:100683567337903::::P2_AUTHCODE,P2_AUTH_KEY,P2_ARG_INVALID_CNT:Ph156118hV47D,cOpJB156046UbeO4312onHs,0'
   }
 ]
 
@@ -78,6 +79,7 @@ const Education = () => {
                     id={cert.id}
                     date={cert.date}
                     pdfUrl={cert.pdfUrl}
+                    verificationUrl={cert.verificationUrl}
                     index={index}
                   />
                 ))}
@@ -120,11 +122,11 @@ interface CertificationItemProps {
   id: string
   date: string
   pdfUrl?: string
+  verificationUrl?: string
   index: number
 }
 
-// Updated CertificationItem component in Education.tsx
-const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: CertificationItemProps) => {
+const CertificationItem = ({ title, issuer, id, date, pdfUrl, verificationUrl, index }: CertificationItemProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -138,8 +140,8 @@ const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: Certifica
       <p className="text-gray-600 text-xs md:text-sm mt-2">ID: {id}</p>
       <p className="text-gray-600 text-xs md:text-sm">Issued: {date}</p>
       
-      {pdfUrl && (
-        <div className="mt-3 md:mt-4">
+      <div className="mt-3 md:mt-4 flex flex-wrap gap-2">
+        {pdfUrl && (
           <DownloadButton 
             filePath={pdfUrl}
             label="Download Certificate"
@@ -147,8 +149,19 @@ const CertificationItem = ({ title, issuer, id, date, pdfUrl, index }: Certifica
             className="text-sm py-2 px-3"
             documentType="certificate"
           />
-        </div>
-      )}
+        )}
+        
+        {verificationUrl && (
+          <a 
+            href={verificationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-gray-100 text-gray-800 hover:bg-gray-200 py-2 px-3 rounded-md transition-colors text-sm"
+          >
+            Verify Certificate <FaExternalLinkAlt className="ml-1 text-xs" />
+          </a>
+        )}
+      </div>
     </motion.div>
   )
 }
