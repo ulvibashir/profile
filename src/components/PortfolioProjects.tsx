@@ -8,28 +8,28 @@ const projectsData = [
     title: 'iHealth',
     github: 'https://github.com/Ismat-Samadov/intelligent_healthcare',
     url: 'https://www.ihealth.ink/',
-    description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
+    description: 'An AI-powered healthcare assistant application that provides health information and guidance to users. Features an interactive chat interface with a knowledge base for common health topics, doctor verification system, and blog management for healthcare content.',
     tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
   },
   {
     title: 'Trackio',
     github: 'https://github.com/Ismat-Samadov/trackio',
     url: 'https://www.trackio.art/',
-    description: 'AI-enhanced project management tool with automated task prioritization and resource optimization algorithms',
+    description: 'A modern, full-stack habit tracking application built with Next.js 14, featuring a calendar-style interface for tracking daily habits with visual progress representation. Includes habit creation with customizable properties, user authentication, and real-time updates.',
     tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
   },
   {
     title: 'Jobry',
     github: 'https://github.com/Ismat-Samadov/jobry',
     url: 'https://www.jobry.me/',
-    description: 'Career analytics platform with ML-based job matching and skill gap analysis for professional development',
+    description: 'A modern job aggregator that pulls positions from multiple sources into one unified platform. Features intelligent search with filtering capabilities, real-time updates, and automatic deduplication with a custom scraping engine for continuous data updates.',
     tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
   },
   {
     title: 'MyFrog',
     github: 'https://github.com/Ismat-Samadov/myfrog',
     url: 'https://www.myfrog.me/',
-    description: 'ML-powered personal finance management platform with spending prediction and automated budget optimization',
+    description: 'A comprehensive task and project management application with Next.js 14, featuring real-time updates, project organization, and detailed task tracking. Includes priority levels, status tracking, due date management, and a clean interface.',
     tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
   }
 ]
@@ -108,7 +108,7 @@ const ProjectCard = ({ title, github, url, description, tags, index }: ProjectCa
             </span>
           ))}
         </div>
-        <a
+        
           href={github}
           target="_blank" 
           rel="noopener noreferrer"
