@@ -122,8 +122,6 @@ npm run dev
 
 Feel free to reach out if you're looking for a Machine Learning Engineer with experience in deep learning, NLP, computer vision, and building production-ready ML systems. I'm open to challenging opportunities and collaborations.
 
-- Email: ismetsemedov@gmail.com
-
 ## 📄 License
 
 MIT
