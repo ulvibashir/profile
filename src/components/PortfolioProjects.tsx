@@ -79,18 +79,7 @@ const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps)
       className="bg-white rounded-lg shadow-md overflow-hidden h-full"
     >
       <div className="p-4 md:p-6">
-        <div className="flex justify-between items-start mb-2 md:mb-3">
-          <h3 className="text-lg md:text-xl font-bold">{title}</h3>
-          <a 
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:text-blue-600 transition-colors"
-            aria-label={`Visit ${title}`}
-          >
-            <FaExternalLinkAlt />
-          </a>
-        </div>
+        <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{title}</h3>
         <p className="text-gray-700 mb-3 md:mb-4 text-sm md:text-base">{description}</p>
         <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
           {tags.map((tag, i) => (
@@ -106,9 +95,9 @@ const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps)
           href={url}
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center text-primary hover:text-blue-600 transition-colors text-sm font-medium"
+          className="inline-flex items-center bg-primary text-white hover:bg-blue-600 transition-colors text-sm font-medium py-2 px-4 rounded-md"
         >
-          Visit Website <span className="ml-1">→</span>
+          Visit Website <FaExternalLinkAlt className="ml-2" />
         </a>
       </div>
     </motion.div>
