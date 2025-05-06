@@ -6,28 +6,24 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 const projectsData = [
   {
     title: 'iHealth',
-    github: 'https://github.com/Ismat-Samadov/intelligent_healthcare',
     url: 'https://www.ihealth.ink/',
     description: 'An AI-powered healthcare assistant application that provides health information and guidance to users. Features an interactive chat interface with a knowledge base for common health topics, doctor verification system, and blog management for healthcare content. Built with Next.js 15, React 19, TypeScript, and PostgreSQL.',
     tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
   },
   {
     title: 'Trackio',
-    github: 'https://github.com/Ismat-Samadov/trackio',
     url: 'https://www.trackio.art/',
     description: 'A modern, full-stack habit tracking application built with Next.js 14, featuring a calendar-style interface for tracking daily habits with visual progress representation. Includes habit creation with customizable properties, user authentication, and real-time updates with optimistic UI for better user experience.',
     tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
   },
   {
-    title: 'Jobry',
-    github: 'https://github.com/Ismat-Samadov/jobry',
-    url: 'https://www.jobry.me/',
+    title: 'Birjob',
+    url: 'https://www.birjob.com/',
     description: 'A modern job aggregator that pulls positions from multiple sources into one unified platform. Features intelligent search with filtering capabilities, real-time updates, and automatic deduplication. Built with Next.js 14, Tailwind CSS, and PostgreSQL with a custom scraping engine for continuous data updates.',
     tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
   },
   {
     title: 'MyFrog',
-    github: 'https://github.com/Ismat-Samadov/myfrog',
     url: 'https://www.myfrog.me/',
     description: 'A comprehensive task and project management application with Next.js 14, featuring real-time updates, project organization, and detailed task tracking. Includes priority levels, status tracking, due date management, and a clean interface for managing projects efficiently.',
     tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
@@ -52,7 +48,6 @@ const PortfolioProjects = () => {
               <ProjectCard 
                 key={index}
                 title={project.title}
-                github={project.github}
                 url={project.url}
                 description={project.description}
                 tags={project.tags}
@@ -68,14 +63,13 @@ const PortfolioProjects = () => {
 
 interface ProjectCardProps {
   title: string;
-  github: string;
   url: string;
   description: string;
   tags: string[];
   index: number;
 }
 
-const ProjectCard = ({ title, github, url, description, tags, index }: ProjectCardProps) => {
+const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -109,12 +103,12 @@ const ProjectCard = ({ title, github, url, description, tags, index }: ProjectCa
           ))}
         </div>
         <a
-          href={github}
+          href={url}
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center text-primary hover:text-blue-600 transition-colors text-sm font-medium"
         >
-          View Project Details <span className="ml-1">→</span>
+          Visit Website <span className="ml-1">→</span>
         </a>
       </div>
     </motion.div>
