@@ -1,4 +1,4 @@
-// src/components/OptimizedImage.tsx - Improved version
+// src/components/OptimizedImage.tsx
 'use client'
 
 import Image from 'next/image'
