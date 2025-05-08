@@ -3,7 +3,6 @@ import { Metadata } from 'next'
 import { generatePageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Image from 'next/image'
-import { generateBlogPostSchema, generateWebsiteSchema } from '@/lib/seo'
 
 // Define TypeScript interfaces for better type safety
 interface BlogPost {
