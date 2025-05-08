@@ -80,11 +80,10 @@ const projectsData: ProjectsDataMap = {
 // Define correct types for the metadata generation function
 type GenerateMetadataProps = {
   params: { slug: string };
-  searchParams: Record<string, string | string[] | undefined>;
 };
 
 export async function generateMetadata(
-  { params, searchParams }: GenerateMetadataProps
+  { params }: GenerateMetadataProps
 ): Promise<Metadata> {
   const slug = params.slug;
   const project = projectsData[slug];
@@ -113,10 +112,9 @@ export async function generateMetadata(
 // Define correct types for the page component
 type ProjectPageProps = {
   params: { slug: string };
-  searchParams: Record<string, string | string[] | undefined>;
 };
 
-export default function ProjectPage({ params, searchParams }: ProjectPageProps) {
+export default function ProjectPage({ params }: ProjectPageProps) {
   const slug = params.slug;
   const project = projectsData[slug];
   
