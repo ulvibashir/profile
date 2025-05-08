@@ -77,13 +77,8 @@ const projectsData: ProjectsDataMap = {
   // Add other projects here
 };
 
-// Define correct types for the metadata generation function
-type GenerateMetadataProps = {
-  params: { slug: string };
-};
-
 export async function generateMetadata(
-  { params }: GenerateMetadataProps
+  { params }: { params: { slug: string } }
 ): Promise<Metadata> {
   const slug = params.slug;
   const project = projectsData[slug];
@@ -109,14 +104,15 @@ export async function generateMetadata(
   });
 }
 
-// Define correct types for the page component
-type ProjectPageProps = {
-  params: { slug: string };
-};
+// A simple function to get the project data
+function getProject(slug: string): ProjectData | undefined {
+  return projectsData[slug];
+}
 
-export default function ProjectPage({ params }: ProjectPageProps) {
-  const slug = params.slug;
-  const project = projectsData[slug];
+export default function ProjectPage(
+  { params }: { params: { slug: string } }
+) {
+  const project = getProject(params.slug);
   
   if (!project) {
     return (
