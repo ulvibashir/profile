@@ -104,15 +104,11 @@ export async function generateMetadata(
   });
 }
 
-// A simple function to get the project data
-function getProject(slug: string): ProjectData | undefined {
-  return projectsData[slug];
-}
-
-export default function ProjectPage(
-  { params }: { params: { slug: string } }
-) {
-  const project = getProject(params.slug);
+// Make the page component async to match Next.js expectations
+export default async function ProjectPage({ params }: { params: { slug: string } }) {
+  // In a real app, you'd fetch this data from an API or database
+  // Making this function async helps satisfy Next.js type constraints
+  const project = await Promise.resolve(projectsData[params.slug]);
   
   if (!project) {
     return (
