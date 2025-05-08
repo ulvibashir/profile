@@ -1,57 +1,40 @@
-// src/components/OptimizedImage.tsx with improved performance
+// src/components/OptimizedImage.tsx - Improved version
 'use client'
 
 import Image from 'next/image'
 import { useState } from 'react'
 
 interface OptimizedImageProps {
-  src: string
-  alt: string
-  width: number
-  height: number
-  className?: string
-  priority?: boolean
-  sizes?: string
-  eager?: boolean // For above-the-fold images
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  priority?: boolean;
+  sizes?: string;
 }
 
-const OptimizedImage = ({
+export default function OptimizedImage({
   src,
   alt,
   width,
   height,
-  className = '',
   priority = false,
-  sizes = '(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 50vw',
-  eager = false
-}: OptimizedImageProps) => {
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+}: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true)
-
+  
   return (
-    <div className="relative overflow-hidden" style={{ width, height, aspectRatio: `${width}/${height}` }}>
+    <div className="relative overflow-hidden bg-gray-100" style={{ aspectRatio: width / height }}>
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        quality={80} // Lower quality to 80 for faster loading
-        priority={priority || eager}
-        loading={eager ? "eager" : "lazy"}
+        fill
         sizes={sizes}
-        className={`
-          duration-500 ease-in-out
-          ${isLoading ? 'scale-105 blur-sm' : 'scale-100 blur-0'}
-          ${className}
-        `}
+        priority={priority}
+        quality={85}
+        className={`duration-700 ease-in-out ${isLoading ? 'scale-110 blur-sm' : 'scale-100 blur-0'}`}
         onLoadingComplete={() => setIsLoading(false)}
-        placeholder="blur"
-        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEJAI0HiL9PQAAAABJRU5ErkJggg=="
       />
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse" />
-      )}
     </div>
   )
 }
-
-export default OptimizedImage

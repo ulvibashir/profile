@@ -1,0 +1,21 @@
+// src/app/sitemap-index.xml/route.ts
+import { MetadataRoute } from 'next'
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://ismat.pro'
+  
+  return [
+    {
+      url: `${baseUrl}/sitemap.xml`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog-sitemap.xml`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/projects-sitemap.xml`,
+      lastModified: new Date(),
+    }
+  ]
+}
