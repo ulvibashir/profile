@@ -77,7 +77,15 @@ const projectsData: ProjectsDataMap = {
   // Add other projects here
 };
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+// Define correct types for the metadata generation function
+type GenerateMetadataProps = {
+  params: { slug: string };
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+export async function generateMetadata(
+  { params, searchParams }: GenerateMetadataProps
+): Promise<Metadata> {
   const slug = params.slug;
   const project = projectsData[slug];
   
@@ -102,7 +110,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   });
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+// Define correct types for the page component
+type ProjectPageProps = {
+  params: { slug: string };
+  searchParams: Record<string, string | string[] | undefined>;
+};
+
+export default function ProjectPage({ params, searchParams }: ProjectPageProps) {
   const slug = params.slug;
   const project = projectsData[slug];
   
