@@ -118,7 +118,7 @@ export default function ProjectsPage() {
           <div className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-lg text-center">
             <h2 className="text-2xl font-bold mb-4">Interested in Collaboration?</h2>
             <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to apply 
+              I&apos;m always open to discussing new projects, creative ideas, or opportunities to apply 
               machine learning to solve complex problems.
             </p>
             <Link
