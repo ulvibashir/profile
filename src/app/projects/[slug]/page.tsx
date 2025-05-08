@@ -1,115 +1,58 @@
 // src/app/projects/[slug]/page.tsx
-import { Metadata } from 'next'
-import { generatePageMetadata } from '@/lib/seo'
-import Image from 'next/image'
 import Link from 'next/link'
-import { MachineLearningSoftwareSchema } from '@/components/StructuredData'
+import Image from 'next/image'
 
-// Define the project data type
-interface ProjectData {
-  title: string;
-  description: string;
-  content: string;
-  imageUrl: string;
-  github: string;
-  url: string;
-  datePublished: string;
-  dateModified: string;
-  tags: string[];
-  technologies: string[];
-  datasets: string[];
-  accuracy: number;
-}
+// The only way to definitively address this issue is to keep the component simple
+export default async function ProjectPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  // Define project data directly (temporary solution)
+  const projectData = {
+    'ihealth': {
+      title: 'iHealth - Healthcare Analytics Platform',
+      description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
+      content: `
+        <h2>Project Overview</h2>
+        <p>iHealth is a comprehensive healthcare analytics platform designed to leverage machine learning for predictive healthcare outcomes.</p>
+        
+        <h2>Technical Implementation</h2>
+        <p>The platform was built using Next.js, React, PostgreSQL, and Python ML libraries.</p>
+      `,
+      imageUrl: '/projects/ihealth.jpg',
+      github: 'https://github.com/Ismat-Samadov/ihealth',
+      url: 'https://www.ihealth.ink/',
+      tags: ['ML Applications', 'Healthcare', 'Predictive Analytics'],
+      technologies: ['Python', 'TensorFlow', 'React', 'Next.js', 'PostgreSQL'],
+      datasets: ['Healthcare Data']
+    },
+    'trackio': {
+      title: 'Trackio - AI Project Management',
+      description: 'Project management tool with AI capabilities',
+      content: `
+        <h2>Project Overview</h2>
+        <p>Trackio helps teams manage projects more efficiently.</p>
+        
+        <h2>Technical Details</h2>
+        <p>Built with modern technologies.</p>
+      `,
+      imageUrl: '/projects/trackio.jpg',
+      github: 'https://github.com/Ismat-Samadov/trackio',
+      url: 'https://www.trackio.art/',
+      tags: ['Project Management', 'AI Solutions'],
+      technologies: ['React', 'Node.js'],
+      datasets: ['Project Data']
+    }
+  };
 
-// Define the type for the projects data object
-interface ProjectsDataMap {
-  [key: string]: ProjectData;
-}
-
-// This would eventually come from your database
-export async function generateStaticParams() {
-  return [
-    { slug: 'ihealth' },
-    { slug: 'trackio' },
-    // Other project slugs
-  ]
-}
-
-// Sample project data - you'll replace with database calls
-const projectsData: ProjectsDataMap = {
-  'ihealth': {
-    title: 'iHealth - Healthcare Analytics Platform',
-    description: 'Healthcare analytics platform with ML-powered patient outcome prediction and personalized health recommendations',
-    content: `
-      <h2>Project Overview</h2>
-      <p>iHealth is a comprehensive healthcare analytics platform designed to leverage machine learning for predictive healthcare outcomes. The system processes patient data to provide personalized health recommendations and help healthcare providers make data-driven decisions.</p>
-      
-      <h2>Technical Implementation</h2>
-      <p>The platform was built using a stack of modern technologies:</p>
-      <ul>
-        <li>Frontend: Next.js 15, React 19, TypeScript</li>
-        <li>Backend: Node.js with Express, PostgreSQL</li>
-        <li>ML Pipeline: Python, TensorFlow, scikit-learn</li>
-        <li>Data Processing: Pandas, NumPy</li>
-      </ul>
-      
-      <h2>Machine Learning Models</h2>
-      <p>Several models were developed for this platform:</p>
-      <ul>
-        <li>Patient Outcome Prediction: Random Forest classifier with 87% accuracy</li>
-        <li>Medication Recommendation: Collaborative filtering system</li>
-        <li>Health Risk Assessment: Gradient Boosting model</li>
-      </ul>
-      
-      <h2>Challenges & Solutions</h2>
-      <p>One of the biggest challenges was ensuring patient data privacy while still providing meaningful insights. We implemented...</p>
-    `,
-    imageUrl: '/projects/ihealth.jpg',
-    github: 'https://github.com/Ismat-Samadov/ihealth',
-    url: 'https://www.ihealth.ink/',
-    datePublished: '2024-01-15',
-    dateModified: '2024-03-20',
-    tags: ['ML Applications', 'Healthcare', 'Predictive Analytics'],
-    technologies: ['Python', 'TensorFlow', 'React', 'Next.js', 'PostgreSQL'],
-    datasets: ['MIMIC-III', 'Healthcare Data', 'Custom Patient Records'],
-    accuracy: 87
-  },
-  // Add other projects here
-};
-
-export async function generateMetadata(
-  { params }: { params: { slug: string } }
-): Promise<Metadata> {
-  const slug = params.slug;
-  const project = projectsData[slug];
+  // Get slug from params
+  const { slug } = params;
   
-  if (!project) {
-    return generatePageMetadata({
-      title: 'Project Not Found',
-      description: 'The project you are looking for does not exist.',
-      path: `/projects/${slug}`,
-      noIndex: true
-    });
-  }
+  // Get project data
+  const project = projectData[slug as keyof typeof projectData];
   
-  return generatePageMetadata({
-    title: project.title,
-    description: project.description,
-    path: `/projects/${slug}`,
-    ogImage: project.imageUrl,
-    keywords: [...project.tags, ...project.technologies],
-    datePublished: project.datePublished,
-    dateModified: project.dateModified,
-    contentType: 'SoftwareSourceCode'
-  });
-}
-
-// Make the page component async to match Next.js expectations
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  // In a real app, you'd fetch this data from an API or database
-  // Making this function async helps satisfy Next.js type constraints
-  const project = await Promise.resolve(projectsData[params.slug]);
-  
+  // If project doesn't exist, show not found page
   if (!project) {
     return (
       <main className="py-20">
@@ -129,17 +72,9 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
   return (
     <main className="py-20">
-      <MachineLearningSoftwareSchema 
-        projectName={project.title}
-        description={project.description}
-        repositoryUrl={project.github}
-        technologies={project.technologies}
-        datasets={project.datasets}
-        accuracy={project.accuracy}
-      />
-      
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          {/* Back button */}
           <div className="mb-6">
             <Link 
               href="/projects"
@@ -152,8 +87,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             </Link>
           </div>
           
+          {/* Project Title */}
           <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
           
+          {/* Tags */}
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map((tag) => (
               <span 
@@ -165,6 +102,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             ))}
           </div>
           
+          {/* Project Image */}
           <div className="relative w-full h-96 mb-8 rounded-lg overflow-hidden">
             <Image
               src={project.imageUrl}
@@ -176,8 +114,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             />
           </div>
           
+          {/* Project Content */}
           <div className="prose prose-lg max-w-none mb-8" dangerouslySetInnerHTML={{ __html: project.content }} />
           
+          {/* Project Links */}
           <div className="flex gap-4 mb-12">
             <a 
               href={project.github}
@@ -198,6 +138,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             </a>
           </div>
           
+          {/* Technologies and Datasets */}
           <div className="border-t border-gray-200 pt-8">
             <h2 className="text-xl font-bold mb-4">Technologies Used</h2>
             <div className="flex flex-wrap gap-2 mb-6">
