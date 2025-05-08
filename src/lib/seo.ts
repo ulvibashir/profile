@@ -228,9 +228,9 @@ export const defaultMetadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   verification: {
-    google: 'google-site-verification-id', // You'll need to fill this in later
-    yandex: 'yandex-verification-id', // You'll need to fill this in later
-    bing: 'msvalidate.01:verification-id', // You'll need to fill this in later
+    google: 'google-site-verification-id', 
+    yandex: 'yandex-verification-id', 
+    // bing: 'msvalidate.01:verification-id', 
   },
   alternates: {
     canonical: 'https://ismat.pro',
