@@ -1,4 +1,4 @@
-// src/components/OptimizedImage.tsx
+// src/components/OptimizedImage.tsx with improved performance
 'use client'
 
 import Image from 'next/image'
@@ -12,6 +12,7 @@ interface OptimizedImageProps {
   className?: string
   priority?: boolean
   sizes?: string
+  eager?: boolean // For above-the-fold images
 }
 
 const OptimizedImage = ({
@@ -21,26 +22,30 @@ const OptimizedImage = ({
   height,
   className = '',
   priority = false,
-  sizes = '100vw'
+  sizes = '(min-width: 1024px) 20vw, (min-width: 768px) 30vw, 50vw',
+  eager = false
 }: OptimizedImageProps) => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <div className="relative overflow-hidden" style={{ width, height }}>
+    <div className="relative overflow-hidden" style={{ width, height, aspectRatio: `${width}/${height}` }}>
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
-        quality={90}
-        priority={priority}
+        quality={80} // Lower quality to 80 for faster loading
+        priority={priority || eager}
+        loading={eager ? "eager" : "lazy"}
         sizes={sizes}
         className={`
-          duration-700 ease-in-out
-          ${isLoading ? 'scale-110 blur-sm' : 'scale-100 blur-0'}
+          duration-500 ease-in-out
+          ${isLoading ? 'scale-105 blur-sm' : 'scale-100 blur-0'}
           ${className}
         `}
         onLoadingComplete={() => setIsLoading(false)}
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEJAI0HiL9PQAAAABJRU5ErkJggg=="
       />
       {isLoading && (
         <div className="absolute inset-0 bg-gray-200 animate-pulse" />

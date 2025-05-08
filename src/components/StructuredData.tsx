@@ -144,3 +144,57 @@ export function WebsiteStructuredData() {
     />
   );
 }
+
+// Add this to src/components/StructuredData.tsx
+export function MachineLearningSoftwareSchema({ 
+  projectName, 
+  description, 
+  repositoryUrl, 
+  technologies,
+  datasets,
+  accuracy
+}: {
+  projectName: string;
+  description: string;
+  repositoryUrl: string;
+  technologies: string[];
+  datasets: string[];
+  accuracy: number;
+}) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: projectName,
+    description: description,
+    codeRepository: repositoryUrl,
+    programmingLanguage: technologies,
+    author: {
+      '@type': 'Person',
+      name: 'Ismat Samadov',
+      url: 'https://ismat.pro'
+    },
+    keywords: [...technologies, ...datasets, 'machine learning', 'AI', 'data analysis'],
+    applicationCategory: 'Machine Learning',
+    additionalProperty: [
+      {
+        '@type': 'PropertyValue',
+        name: 'Model Accuracy',
+        value: `${accuracy}%`
+      },
+      {
+        '@type': 'PropertyValue',
+        name: 'Datasets Used',
+        value: datasets.join(', ')
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(structuredData)
+      }}
+    />
+  );
+}

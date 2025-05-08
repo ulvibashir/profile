@@ -1,15 +1,25 @@
 // src/app/layout.tsx
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import { defaultMetadata } from '@/lib/seo'
 import { PersonStructuredData, WebsiteStructuredData } from '@/components/StructuredData'
 import AnalyticsProvider from '@/components/AnalyticsProvider'
+import { Inter, Roboto_Mono } from 'next/font/google'
 
+
+// Configure fonts with proper subsets and display settings
 const inter = Inter({ 
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   display: 'swap', 
   variable: '--font-inter',
+  preload: true
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+  preload: true
 })
 
 export const metadata: Metadata = defaultMetadata;
