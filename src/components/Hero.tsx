@@ -53,7 +53,7 @@ const Hero = () => {
             </a>
 
             <DownloadButton
-              filePath="/ISMAT SAMADOV.pdf"
+              filePath="/Ulvi_Bashirov_CV.pdf"
               label="Download CV"
               className="w-full sm:w-auto py-3 px-6"
               variant="secondary"
