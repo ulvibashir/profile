@@ -6,7 +6,6 @@ import { FaCode, FaDatabase, FaChartBar, FaTools } from 'react-icons/fa'
 const skillsData = {
   technicalSkills: [
     'Swift',
-    'SwiftUI',
     'UIKit',
     'Xcode',
     'Git',
@@ -16,7 +15,6 @@ const skillsData = {
   ],
   architectureAndDesign: [
     'MVVM',
-    'VIPER',
     'Modular Architecture',
     'Clean Architecture',
     'Design Patterns'

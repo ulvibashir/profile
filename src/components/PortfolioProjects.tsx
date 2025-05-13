@@ -5,29 +5,38 @@ import { FaExternalLinkAlt } from 'react-icons/fa'
 
 const projectsData = [
   {
-    title: 'iHealth',
-    url: 'https://www.ihealth.ink/',
-    description: 'An AI-powered healthcare assistant application that provides health information and guidance to users. Features an interactive chat interface with a knowledge base for common health topics, doctor verification system, and blog management for healthcare content. Built with Next.js 15, React 19, TypeScript, and PostgreSQL.',
-    tags: ['ML Applications', 'Healthcare', 'Predictive Analytics']
+    title: 'Birbank',
+    url: 'https://apps.apple.com/az/app/birbank/id1293207342',
+    description: 'Contributed to the development and enhancement of Birbank’s official iOS app. Focused on financial features including payments, transfers, and secure authentication. Improved code quality and app performance with Swift and UIKit.',
+    tags: ['Fintech', 'Swift', 'iOS Development'],
+    rating: '4.9',
+    ratingCount: '191.3K+'
+  },
+
+  {
+    title: 'UBank by Unibank',
+    url: 'https://apps.apple.com/az/app/ubank-by-unibank/id1073632425',
+    description: 'Worked on the UBank iOS app in a hybrid setting. Responsible for implementing and maintaining core banking features, enhancing user experience, and refactoring legacy components.',
+    tags: ['Banking', 'UIKit', 'Mobile UX'],
+    rating: '4.8',
+    ratingCount: '17.6K+'
   },
   {
-    title: 'Trackio',
-    url: 'https://www.trackio.art/',
-    description: 'A modern, full-stack habit tracking application built with Next.js 14, featuring a calendar-style interface for tracking daily habits with visual progress representation. Includes habit creation with customizable properties, user authentication, and real-time updates with optimistic UI for better user experience.',
-    tags: ['Machine Learning', 'Process Optimization', 'AI Solutions']
+    title: 'ABB Mobile',
+    url: 'https://apps.apple.com/az/app/abb-mobile/id1251456175',
+    description: 'Developed core features of ABB’s mobile banking app including payment integrations and account management. Contributed to architecture improvements and ensured performance optimizations.',
+    tags: ['Mobile Banking', 'Architecture', 'Swift'],
+    rating: '4.9',
+    ratingCount: '110K+'
   },
   {
-    title: 'Birjob',
-    url: 'https://www.birjob.com/',
-    description: 'A modern job aggregator that pulls positions from multiple sources into one unified platform. Features intelligent search with filtering capabilities, real-time updates, and automatic deduplication. Built with Next.js 14, Tailwind CSS, and PostgreSQL with a custom scraping engine for continuous data updates.',
-    tags: ['Predictive Models', 'Career Analytics', 'AI Recommendations']
+    title: 'Beso',
+    url: 'https://apps.apple.com/az/app/beso-mobile/id6449295813',
+    description: 'Led the end-to-end development of the Beso mobile application aimed at small businesses. Implemented modules for inventory, expense tracking, e-invoicing, and financial forecasting using Swift.',
+    tags: ['Business Tools', 'Finance'],
+    rating: '5.0',
+    ratingCount: 'New'
   },
-  {
-    title: 'MyFrog',
-    url: 'https://www.myfrog.me/',
-    description: 'A comprehensive task and project management application with Next.js 14, featuring real-time updates, project organization, and detailed task tracking. Includes priority levels, status tracking, due date management, and a clean interface for managing projects efficiently.',
-    tags: ['Financial Modeling', 'Predictive Analytics', 'AI Applications']
-  }
 ]
 
 const PortfolioProjects = () => {
@@ -51,6 +60,8 @@ const PortfolioProjects = () => {
                 url={project.url}
                 description={project.description}
                 tags={project.tags}
+                rating={project.rating}
+                ratingCount={project.ratingCount}
                 index={index}
               />
             ))}
@@ -66,10 +77,12 @@ interface ProjectCardProps {
   url: string;
   description: string;
   tags: string[];
+  rating: string;
+  ratingCount: string;
   index: number;
 }
 
-const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps) => {
+const ProjectCard = ({ title, url, description, tags, rating, ratingCount, index }: ProjectCardProps) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -80,6 +93,10 @@ const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps)
     >
       <div className="p-4 md:p-6">
         <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">{title}</h3>
+        
+        {rating && ratingCount && (
+          <p className="text-sm text-yellow-600 font-semibold mb-1">Rating: {rating} ({ratingCount})</p>
+        )}
         <p className="text-gray-700 mb-3 md:mb-4 text-sm md:text-base">{description}</p>
         <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
           {tags.map((tag, i) => (
@@ -97,7 +114,7 @@ const ProjectCard = ({ title, url, description, tags, index }: ProjectCardProps)
           rel="noopener noreferrer"
           className="inline-flex items-center bg-primary text-white hover:bg-blue-600 transition-colors text-sm font-medium py-2 px-4 rounded-md"
         >
-          Visit Website <FaExternalLinkAlt className="ml-2" />
+          Visit App <FaExternalLinkAlt className="ml-2" />
         </a>
       </div>
     </motion.div>

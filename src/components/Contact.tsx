@@ -146,8 +146,8 @@ const Contact = () => {
               <h3 className="text-xl font-bold mb-4 md:mb-6">Send a Message</h3>
               
               <p className="text-gray-700 text-sm sm:text-base mb-6">
-                Feel free to reach out if you&apos;re looking for a professional with expertise in machine learning, 
-                predictive modeling, and AI solutions. I&apos;m open to new opportunities and collaborations.
+                Feel free to reach out if you&apos;re looking for a professional iOS engineer with expertise in Swift, UIKit. 
+                I&apos;m open to new opportunities, collaborations, or freelance projects.
               </p>
               
               <form onSubmit={handleSubmit} className="space-y-4">
