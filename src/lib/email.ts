@@ -12,8 +12,8 @@ export async function sendEmail({ subject, text, html }: EmailOptions) {
     const resend = new Resend(process.env.RESEND_API_KEY || '');
     
     // Handle the case where environment variables might be undefined
-    const fromEmail = process.env.NOTIFICATION_FROM_EMAIL || 'contact@ismat.pro';
-    const toEmail = process.env.NOTIFICATION_TO_EMAIL || 'ismetsemedov@gmail.com';
+    const fromEmail = process.env.NOTIFICATION_FROM_EMAIL;
+    const toEmail = process.env.NOTIFICATION_TO_EMAIL;
     
     console.log('Attempting to send email:', {
       from: `Contact Form <${fromEmail}>`,
