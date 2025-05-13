@@ -3,13 +3,13 @@ export function PersonStructuredData() {
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Ismat Samadov',
-    description: 'Machine Learning Engineer & Analytics Professional specializing in deep learning, NLP, computer vision, and predictive analytics',
-    url: 'https://ismat.pro',
-    jobTitle: 'Machine Learning Engineer',
+    name: 'Ulvi Bashirov',
+    description: 'Senior iOS Engineer specializing in Swift, UIKit, SwiftUI, and scalable fintech app development',
+    url: 'https://ulvi.dev',
+    jobTitle: 'Senior iOS Engineer',
     worksFor: {
       '@type': 'Organization',
-      name: 'Kapital Bank',
+      name: 'Birbank',
     },
     alumniOf: [
       {
@@ -31,27 +31,25 @@ export function PersonStructuredData() {
       },
     },
     sameAs: [
-      'https://github.com/Ismat-Samadov',
-      'https://huggingface.co/IsmatS',
-      'https://www.kaggle.com/ismetsemedov',
-      'https://www.hackerrank.com/profile/IsmatSamadov',
-      'https://medium.com/@ismatsamadov',
-      'https://leetcode.com/u/ismetsemedov/'
+      'https://github.com/ulvibashir',
+      'https://www.hackerrank.com/profile/ubashirov',
+      'https://leetcode.com/u/ulvibashir/',
+      'https://www.linkedin.com/in/ulvibashir/'
     ],
     knowsAbout: [
-      'Machine Learning',
-      'Deep Learning',
-      'Natural Language Processing',
-      'Computer Vision',
-      'Time Series Analysis',
-      'Predictive Analytics',
-      'Neural Networks',
-      'TensorFlow',
-      'PyTorch',
-      'Feature Engineering',
-      'ML Operations',
+      'iOS Development',
+      'Swift',
+      'UIKit',
+      'SwiftUI',
+      'Xcode',
+      'MVVM',
+      'VIPER',
+      'Clean Architecture',
+      'Agile',
+      'Scrum',
+      'Mobile Application Development'
     ],
-    email: 'mailto:ismetsemedov@gmail.com',
+    email: 'mailto:ulvi@bashirov.dev',
   };
 
   return (
@@ -122,9 +120,9 @@ export function WebsiteStructuredData() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Ismat Samadov | Machine Learning Engineer & Analytics Professional',
+    name: 'Ulvi Bashirov | iOS Engineer & Instructor',
     url: 'https://ismat.pro',
-    description: 'Professional portfolio of Ismat Samadov, a Machine Learning Engineer specializing in deep learning, NLP, computer vision, and predictive analytics',
+    description: 'Professional portfolio of Ulvi Bashirov, a Senior iOS Engineer specializing in Swift, UIKit, and scalable fintech app development',
     potentialAction: {
       '@type': 'SearchAction',
       target: {

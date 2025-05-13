@@ -188,19 +188,19 @@ export function generatePageMetadata({
 export const defaultMetadata: Metadata = {
   title: {
     template: '%s | Ismat Samadov',
-    default: 'Ismat Samadov | Machine Learning Engineer & Analytics Professional',
+    default: 'Ulvi Bashirov | iOS Engineer & Instructor',
   },
   description: 'Professional portfolio of Ismat Samadov, a Machine Learning Engineer & Analytics Professional specializing in deep learning, predictive modeling, and building end-to-end ML solutions. Expertise in SQL, data analysis, and machine learning applications.',
   metadataBase: new URL('https://ismat.pro'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'Ismat Samadov | Machine Learning Engineer & Analytics Professional',
+    siteName: 'Ulvi Bashirov | iOS Engineer & Instructor',
     images: [{
       url: '/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: 'Ismat Samadov - Machine Learning Engineer & Analytics Professional',
+      alt: 'Ulvi Bashirov | iOS Engineer & Instructor',
     }],
   },
   twitter: {
