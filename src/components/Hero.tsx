@@ -18,24 +18,22 @@ const Hero = () => {
         >
           {/* Name and title - improved responsive text sizes */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-gray-900">
-            <span className="text-primary">Ismat</span> Samadov
+            <span className="text-primary">Ulvi</span> Bashirov
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl font-medium mb-4 text-gray-700">
-            Machine Learning Engineer & Analytics Professional
+            iOS Engineer & Instructor
           </p>
           <p className="text-md sm:text-lg font-medium mb-6 text-gray-700">
-            SQL | Data Analysis | Aspiring Machine Learning Specialist
+            I code with electronic music playing—code and beats just work well together.
           </p>
 
           {/* Description - improved text size and spacing */}
           <div className="mb-8">
             <p className="text-gray-600 mb-3 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-              Combining strong SQL database skills with a passion for data analysis and machine learning
-              to extract meaningful insights from complex datasets.
+              iOS Engineer focused on fintech applications. I build and maintain secure payment systems and banking features with an emphasis on clean code and reliable performance.
             </p>
             <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-              Currently focusing on developing ML skills through self-study and practical projects,
-              while applying analytical expertise to solve real business challenges.
+              I value straightforward solutions and clear communication. My experience includes both hands-on development and teaching others.
             </p>
           </div>
 

@@ -26,7 +26,7 @@ const Navbar = () => {
     }`}>
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold text-primary z-20">
-          Ismat Samadov <span className="hidden sm:inline text-gray-700 font-normal"></span>
+          Ulvi Bashirov <span className="hidden sm:inline text-gray-700 font-normal"></span>
         </Link>
         
         {/* Mobile menu button - improved z-index */}
