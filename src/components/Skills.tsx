@@ -5,32 +5,38 @@ import { FaCode, FaDatabase, FaChartBar, FaTools } from 'react-icons/fa'
 
 const skillsData = {
   technicalSkills: [
-    'SQL',
-    'Python',
-    'Database Design',
-    'Stored Procedures',
-    'ETL Processes'
+    'Swift',
+    'SwiftUI',
+    'UIKit',
+    'Xcode',
+    'Git',
+    'CocoaPods',
+    'SPM',
+    'Interface Builder'
   ],
-  dataAnalysis: [
-    'Data Visualization', 
-    'Statistical Analysis', 
-    'Dashboard Creation',
-    'Reporting Automation',
-    'KPI Monitoring'
+  architectureAndDesign: [
+    'MVVM',
+    'VIPER',
+    'Modular Architecture',
+    'Clean Architecture',
+    'Design Patterns'
   ],
-  machineLearning: [
-    'Supervised Learning', 
-    'Classification',
-    'Regression Models',
-    'Scikit-learn',
-    'Model Evaluation'
+  toolingAndPractices: [
+    'CI/CD',
+    'Unit Testing',
+    'Fastlane',
+    'Jira',
+    'Postman',
+    'Debugging',
+    'Performance Profiling',
+    'TestFlight'
   ],
-  businessAnalytics: [
-    'Financial Analysis', 
-    'Risk Assessment',
-    'Credit Evaluation',
-    'Process Optimization',
-    'Customer Analytics'
+  collaborationAndProcess: [
+    'Agile Methodologies',
+    'Scrum',
+    'Teamwork',
+    'Code Review',
+    'Cross-functional Collaboration'
   ]
 }
 
@@ -56,23 +62,23 @@ const Skills = () => {
             />
             
             <SkillCategory 
-              title="Data Analysis"
+              title="Architecture & Design"
               icon={<FaDatabase />}
-              skills={skillsData.dataAnalysis}
+              skills={skillsData.architectureAndDesign}
               delay={0.1}
             />
             
             <SkillCategory 
-              title="Machine Learning"
+              title="Tooling & Practices"
               icon={<FaChartBar />}
-              skills={skillsData.machineLearning}
+              skills={skillsData.toolingAndPractices}
               delay={0.2}
             />
             
             <SkillCategory 
-              title="Business Analytics"
+              title="Collaboration & Process"
               icon={<FaTools />}
-              skills={skillsData.businessAnalytics}
+              skills={skillsData.collaborationAndProcess}
               delay={0.3}
             />
           </div>

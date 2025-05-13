@@ -6,28 +6,97 @@ import DownloadButton from './DownloadButton'
 
 const educationData = [
   {
-    institution: 'Azerbaijan State University of Economics',
-    degree: 'Master',
+    institution: 'Azerbaijan State University of Economics • UNEC',
+    degree: "Master's degree",
     field: 'Artificial Intelligence',
-    period: 'Current'
+    period: 'Sep 2024 - Jul 2026'
   },
   {
-    institution: 'Mingachevir State University',
-    degree: 'Bachelor',
-    field: 'Management of Industry',
-    period: '2012 - 2016'
+    institution: 'SABAH groups',
+    degree: "Bachelor's degree",
+    field: 'Petroleum Engineering',
+    period: '2018 - 2021'
+  },
+  {
+    institution: 'Azerbaijan State Oil and Industry University • ASOIU',
+    degree: "Bachelor's degree",
+    field: 'Petroleum Engineering',
+    period: '2017 - 2021'
+  },
+  {
+    institution: 'STEP IT Academy Azerbaijan',
+    degree: '',
+    field: 'Computer Software Engineering',
+    period: '2018 - 2021'
   }
 ]
 
 const certificationData = [
   {
-    title: 'Oracle Database SQL Certified Associate',
-    issuer: 'Oracle',
-    id: '290631207OCASQL12C',
-    date: 'May 2022',
-    pdfUrl: '/OCA.pdf',
-    verificationUrl: 'https://catalog-education.oracle.com/apex/f?p=1010:2:100683567337903::::P2_AUTHCODE,P2_AUTH_KEY,P2_ARG_INVALID_CNT:Ph156118hV47D,cOpJB156046UbeO4312onHs,0'
+    title: 'The Technology of Music Production',
+    issuer: 'Berklee College of Music',
+    id: 'QDHUY9NKOZVL',
+    date: 'Nov 2024',
+    pdfUrl: '',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/records/QDHUY9NKOZVL'
+  },
+  {
+    title: 'Introduction to Ableton Live',
+    issuer: 'Berklee College of Music',
+    id: 'A2STNLU9IKAN',
+    date: 'Nov 2024',
+    pdfUrl: '',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/records/A2STNLU9IKAN'
+  },
+
+  // {
+  //   title: 'Viveka Company Creation Program',
+  //   issuer: 'Viveka',
+  //   id: '',
+  //   date: 'Dec 2023',
+  //   pdfUrl: '',
+  //   verificationUrl: ''
+  // },
+  {
+    title: 'Introduction to Bash Shell Scripting',
+    issuer: 'Coursera',
+    id: 'RA2ZXM5K4R7U',
+    date: 'Sep 2022',
+    pdfUrl: '',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/certificate/RA2ZXM5K4R7U'
+  },
+  {
+    title: 'SQL (Advanced)',
+    issuer: 'HackerRank',
+    id: '978F8OAE2175',
+    date: 'Sep 2020',
+    pdfUrl: '',
+    verificationUrl: 'https://www.hackerrank.com/certificates/978f80ae2175'
+  },
+  {
+    title: 'Mobile Development',
+    issuer: 'ABB Innovation',
+    id: '21989647',
+    date: 'Aug 2020',
+    pdfUrl: '',
+    verificationUrl: 'https://www.credential.net/f047b093-f9c3-4c3d-b847-b2f17657c905'
+  },
+  {
+    title: 'Microsoft Technology Associate: Software Development Fundamentals (MTA)',
+    issuer: 'Microsoft',
+    id: '98-361',
+    date: 'Feb 2020',
+    pdfUrl: '',
+    verificationUrl: 'https://www.youracclaim.com/badges/aa72d2a4-c594-432a-b6cd-0bc1d5f7cc6a/linked_in'
   }
+  // {
+  //   title: 'IT Essentials',
+  //   issuer: 'Cisco Networking Academy',
+  //   id: '',
+  //   date: 'Mar 2019',
+  //   pdfUrl: '',
+  //   verificationUrl: ''
+  // }
 ]
 
 const Education = () => {
@@ -137,7 +206,10 @@ const CertificationItem = ({ title, issuer, id, date, pdfUrl, verificationUrl, i
     >
       <h4 className="text-base md:text-lg font-bold mb-1">{title}</h4>
       <p className="text-primary font-medium text-sm md:text-base">{issuer}</p>
-      <p className="text-gray-600 text-xs md:text-sm mt-2">ID: {id}</p>
+      {
+        id && <p className="text-gray-600 text-xs md:text-sm mt-2">ID: {id}</p>
+      }
+      
       <p className="text-gray-600 text-xs md:text-sm">Issued: {date}</p>
       
       <div className="mt-3 md:mt-4 flex flex-wrap gap-2">

@@ -4,42 +4,95 @@ import { motion } from 'framer-motion'
 
 const experienceData = [
   {
-    title: 'SQL Developer',
-    company: 'Kapital Bank',
+    title: 'Birbank',
+    company: 'Senior iOS Engineer',
+    period: 'Oct 2024 - Present',
+    responsibilities: [
+      "Contribute to the development and maintenance of the Birbank iOS app",
+      "Collaborate with cross-functional teams on-site to deliver key features",
+      "Ensure app performance, reliability, and scalability",
+      "Implement clean and maintainable architecture using Swift"
+    ]
+  },
+  {
+    title: 'Beso Mobile',
+    company: 'Leading iOS Engineer',
     period: 'Feb 2023 - Present',
     responsibilities: [
-      'Developing and optimizing SQL queries and stored procedures for fraud detection systems',
-      'Creating and maintaining database schemas for transaction monitoring and analytics',
-      'Implementing data extraction and transformation processes for financial reporting',
-      'Building automated SQL-based data pipelines to support analytical requirements',
-      'Collaborating with cross-functional teams to translate business requirements into SQL solutions'
+      "Lead end-to-end development and maintenance of the Beso app",
+      "Built tools for inventory, income/expense tracking, and e-invoicing for small businesses",
+      "Make all major technical decisions, including app architecture and infrastructure",
+      "Optimize performance, scalability, and usability",
+      "Troubleshoot and resolve technical issues across the app",
+      "Continuously improve codebase to meet evolving business requirements",
+      "Support long-term product strategy and roadmap"
     ]
   },
   {
-    title: 'Business Analytics',
-    company: 'Unibank',
-    period: 'Dec 2021 - Feb 2023',
+    title: 'ABB Innovation',
+    company: 'Senior iOS Engineer',
+    period: 'Oct 2023 - Apr 2025',
     responsibilities: [
-      'Designed analytical reports and dashboards for tracking key business metrics and KPIs',
-      'Conducted in-depth data analysis to identify trends and opportunities in customer behavior',
-      'Developed SQL queries to extract and process data for business intelligence reporting',
-      'Created data visualizations to communicate insights to business stakeholders',
-      'Collaborated with department heads to establish metrics and reporting frameworks'
+      "Develop and maintain iOS features for ABB as part of an external development team",
+      "Integrated Masterpass by Mastercard for secure in-app payment functionality",
+      "Work across multiple tribes and feature teams, depending on client needs",
+      "Contribute to large-scale fintech projects, including payments, transfers, and investment flows",
+      "Collaborate closely with ABB Bank’s in-house teams to ensure seamless integration and delivery",
+      "Participate in architectural discussions, refactoring, and system improvements",
+      "Handle feature development, debugging, and release planning in a dynamic, multi-team setup",
+      "Ensure code quality, stability, and performance through regular reviews and testing"
     ]
   },
   {
-    title: 'Underwriter',
-    company: 'Unibank',
-    period: 'Sep 2019 - Dec 2021',
+    title: 'Unibank',
+    company: 'Senior iOS Engineer',
+    period: 'Jul 2023 - Oct 2024',
     responsibilities: [
-      'Evaluated consumer loan applications using established credit policies and risk guidelines',
-      'Analyzed applicant financial data and credit histories to make informed lending decisions',
-      'Prepared detailed reports on loan portfolio performance and risk metrics',
-      'Identified trends in application data to improve underwriting processes',
-      'Collaborated with fraud prevention teams to verify application information'
+      "Develop and maintain a large-scale iOS banking app",
+      "Handle full-cycle development, from feature planning to release",
+      "Collaborate with designers and backend engineers to ensure seamless UX",
+      "Improve app architecture, performance, and scalability",
+      "Ensure code quality and stability across versions",
+      "Actively participate in Agile development processes"
+    ]
+  },
+  {
+    title: 'ABB',
+    company: 'Leading iOS Developer',
+    period: 'Sep 2020 - Jul 2023',
+    responsibilities: [
+      "Led development of a complex iOS application from planning to release",
+      "Defined technical strategies and collaborated with stakeholders",
+      "Conducted code reviews and maintained coding standards",
+      "Mentored junior developers and supported team growth",
+      "Diagnosed and optimized performance issues in production",
+      "Ensured high product quality with clean architecture and stable releases",
+      "Worked in an Agile environment using Nexus for cross-team coordination"
+    ]
+  },
+  {
+    title: 'ABB Innovation',
+    company: 'Instructor',
+    period: 'Mar 2023 - Jun 2023',
+    responsibilities: [
+      "Taught mobile development using MIT App Inventor",
+      "Created lesson plans and guided students through hands-on projects",
+      "Helped beginners build functional apps without prior coding experience",
+      "Focused on technical and design skill development"
+    ]
+  },
+  {
+    title: 'ABB Innovation',
+    company: 'Mobile and Web Developer (Apprenticeship)',
+    period: 'Feb 2020 - Jun 2020',
+    responsibilities: [
+      "Worked on web and cross-platform mobile apps using React JS and React Native",
+      "Designed UI and optimized app performance",
+      "Troubleshot UI and functional issues across platforms",
+      "Gained hands-on experience in JavaScript, Swift, and HTML"
     ]
   }
-]
+];
 
 const Experience = () => {
   return (
