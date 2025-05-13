@@ -1,45 +1,33 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaKaggle } from 'react-icons/fa'
+import { FaGithub, FaKaggle, FaLinkedin } from 'react-icons/fa'
 import { SiHackerrank, SiLeetcode, SiHuggingface, SiMedium } from 'react-icons/si'
 
 const profilesData = [
   {
     platform: 'GitHub',
-    url: 'https://github.com/Ismat-Samadov',
+    url: 'https://github.com/ulvibashir',
     icon: <FaGithub />,
-    username: 'Ismat-Samadov'
+    username: '@ulvibashir'
   },
   {
     platform: 'HackerRank',
-    url: 'https://www.hackerrank.com/profile/IsmatSamadov',
+    url: 'https://www.hackerrank.com/profile/ubashirov',
     icon: <SiHackerrank />,
-    username: 'IsmatSamadov'
-  },
-  {
-    platform: 'Medium',
-    url: 'https://medium.com/@ismatsamadov',
-    icon: <SiMedium />,
-    username: '@ismatsamadov'
-  },
-  {
-    platform: 'Hugging Face',
-    url: 'https://huggingface.co/IsmatS',
-    icon: <SiHuggingface />,
-    username: 'IsmatS'
-  },
-  {
-    platform: 'Kaggle',
-    url: 'https://www.kaggle.com/ismetsemedov',
-    icon: <FaKaggle />,
-    username: 'ismetsemedov'
+    username: '@ubashirov'
   },
   {
     platform: 'LeetCode',
-    url: 'https://leetcode.com/u/ismetsemedov/',
+    url: 'https://leetcode.com/u/ulvibashir/',
     icon: <SiLeetcode />,
-    username: 'ismetsemedov'
+    username: '@ulvibashir'
+  },
+  {
+    platform: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/ulvibashir/',
+    icon: <FaLinkedin />,
+    username: '@ulvibashir'
   }
 ]
 
