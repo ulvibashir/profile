@@ -62,10 +62,10 @@ const Navbar = () => {
           <div className="flex flex-col space-y-6">
             <MobileNavLink href="#home" onClick={() => setIsMenuOpen(false)}>Home</MobileNavLink>
             <MobileNavLink href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</MobileNavLink>
-            <MobileNavLink href="#skills" onClick={() => setIsMenuOpen(false)}>ML Skills</MobileNavLink>
+            <MobileNavLink href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</MobileNavLink>
             <MobileNavLink href="#education" onClick={() => setIsMenuOpen(false)}>Education</MobileNavLink>
             <MobileNavLink href="#tech-profiles" onClick={() => setIsMenuOpen(false)}>Tech Profiles</MobileNavLink>
-            <MobileNavLink href="#portfolio" onClick={() => setIsMenuOpen(false)}>ML Projects</MobileNavLink>
+            <MobileNavLink href="#portfolio" onClick={() => setIsMenuOpen(false)}>Projects</MobileNavLink>
             <MobileNavLink href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</MobileNavLink>
           </div>
         </nav>
