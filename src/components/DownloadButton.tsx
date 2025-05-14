@@ -42,7 +42,7 @@ const DownloadButton = ({
       // Silently fail - don't block the download if tracking fails
       console.error('Error tracking download:', error)
     }
-  }, [filePath, documentType])
+  }, [/*filePath, documentType*/])
 
   return (
     <a 

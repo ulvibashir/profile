@@ -3,8 +3,6 @@
 
 import { useEffect, useState, useCallback, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { v4 as uuidv4 } from 'uuid'
-import Cookies from 'js-cookie'
 
 interface AnalyticsProviderProps {
   children: React.ReactNode
@@ -13,27 +11,27 @@ interface AnalyticsProviderProps {
 const AnalyticsContent = () => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const [pageLoadTime, setPageLoadTime] = useState<number>(Date.now())
+  // const [pageLoadTime, setPageLoadTime] = useState<number>(Date.now())
   const [hasTrackedPageView, setHasTrackedPageView] = useState<boolean>(false)
 
   // Get session data
-  const getSessionData = useCallback(() => {
-    // Try to get session ID from cookie, or create a new one
-    let sessionId = Cookies.get('session_id')
-    let visitorId = Cookies.get('visitor_id')
-    
-    if (!sessionId) {
-      sessionId = uuidv4()
-      Cookies.set('session_id', sessionId, { expires: 1/48 }) // 30 minutes
-    }
-    
-    if (!visitorId) {
-      visitorId = uuidv4()
-      Cookies.set('visitor_id', visitorId, { expires: 365 * 2 }) // 2 years
-    }
-    
-    return { sessionId, visitorId }
-  }, [])
+  // const getSessionData = useCallback(() => {
+  //   // Try to get session ID from cookie, or create a new one
+  //   let sessionId = Cookies.get('session_id')
+  //   let visitorId = Cookies.get('visitor_id')
+  //   
+  //   if (!sessionId) {
+  //     sessionId = uuidv4()
+  //     Cookies.set('session_id', sessionId, { expires: 1/48 }) // 30 minutes
+  //   }
+  //   
+  //   if (!visitorId) {
+  //     visitorId = uuidv4()
+  //     Cookies.set('visitor_id', visitorId, { expires: 365 * 2 }) // 2 years
+  //   }
+  //   
+  //   return { sessionId, visitorId }
+  // }, [])
 
   // Track page view
   const trackPageView = useCallback(async () => {
@@ -113,7 +111,7 @@ const AnalyticsContent = () => {
     } catch (error) {
       console.error('Error tracking page exit:', error)
     }
-  }, [/*getSessionData, hasTrackedPageView, pageLoadTime, pathname*/])
+  }, [/*getSessionData, pageLoadTime, pathname*/ hasTrackedPageView])
 
   // Setup click tracking
   const setupClickTracking = useCallback(() => {
@@ -183,7 +181,7 @@ const AnalyticsContent = () => {
 
   // Track page view when the path changes or on initial load
   useEffect(() => {
-    setPageLoadTime(Date.now())
+    // setPageLoadTime(Date.now())
     setHasTrackedPageView(false)
     
     // Small delay to ensure the page is properly loaded
@@ -206,7 +204,7 @@ const AnalyticsContent = () => {
       if (document.visibilityState === 'hidden') {
         trackPageExit()
       } else if (document.visibilityState === 'visible') {
-        setPageLoadTime(Date.now())
+        // setPageLoadTime(Date.now())
         if (!hasTrackedPageView) {
           trackPageView()
         }
@@ -227,7 +225,7 @@ const AnalyticsContent = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('beforeunload', handleBeforeUnload)
     }
-  }, [hasTrackedPageView, setupClickTracking, trackPageExit, trackPageView, setPageLoadTime])
+  }, [hasTrackedPageView, setupClickTracking, trackPageExit, trackPageView])
 
   return null;
 }
