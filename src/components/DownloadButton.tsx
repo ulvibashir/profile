@@ -25,19 +25,19 @@ const DownloadButton = ({
       const fileName = filePath.split('/').pop() || 'unknown-file'
       
       // Track the download event
-      await fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessionId: document.cookie.split('; ').find(row => row.startsWith('session_id='))?.split('=')[1],
-          eventType: 'download',
-          componentId: `download-${documentType}`,
-          eventValue: fileName,
-          pagePath: window.location.pathname
-        }),
-      })
+      // await fetch('/api/analytics/track', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     sessionId: document.cookie.split('; ').find(row => row.startsWith('session_id='))?.split('=')[1],
+      //     eventType: 'download',
+      //     componentId: `download-${documentType}`,
+      //     eventValue: fileName,
+      //     pagePath: window.location.pathname
+      //   }),
+      // })
     } catch (error) {
       // Silently fail - don't block the download if tracking fails
       console.error('Error tracking download:', error)
