@@ -119,7 +119,7 @@ const Contact = () => {
       // Fallback message if the API fails
       setSuccessMessage(
         "While there was an issue with our contact system, " +
-        "you can reach me directly at ismetsemedov@gmail.com."
+        "you can reach me directly at contact@ulvi.bashirov.com"
       )
       setIsSubmitted(true)
       

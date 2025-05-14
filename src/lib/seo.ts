@@ -355,7 +355,7 @@ export const generatePersonSchema = () => {
         alternateName: 'ru'
       }
     ],
-    email: 'mailto:ismetsemedov@gmail.com',
+    email: 'mailto:contact@ulvi.bashirov.com',
     telephone: '+994-XXX-XXX-XXXX'  // Add your phone if you want it public
   };
 };
