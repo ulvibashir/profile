@@ -87,7 +87,7 @@ const AnalyticsContent = () => {
     } catch (error) {
       console.error('Error tracking page view:', error)
     }
-  }, [getSessionData, pathname, searchParams])
+  }, [/*getSessionData, pathname, searchParams*/])
 
   // Track user leaving the page
   const trackPageExit = useCallback(async () => {
@@ -113,7 +113,7 @@ const AnalyticsContent = () => {
     } catch (error) {
       console.error('Error tracking page exit:', error)
     }
-  }, [getSessionData, hasTrackedPageView, pageLoadTime, pathname])
+  }, [/*getSessionData, hasTrackedPageView, pageLoadTime, pathname*/])
 
   // Setup click tracking
   const setupClickTracking = useCallback(() => {
@@ -179,7 +179,7 @@ const AnalyticsContent = () => {
     return () => {
       document.removeEventListener('click', handleClick)
     }
-  }, [getSessionData, pathname])
+  }, [/*getSessionData, pathname*/])
 
   // Track page view when the path changes or on initial load
   useEffect(() => {
