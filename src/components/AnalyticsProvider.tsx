@@ -126,7 +126,7 @@ const AnalyticsContent = () => {
       // Check if the clicked element or any of its parents is a button, link, or has a data-track attribute
       let currentElement: HTMLElement | null = target
       let trackableElement: HTMLElement | null = null
-      let componentId = ''
+      // let componentId = ''
       
       while (currentElement && !trackableElement) {
         const tagName = currentElement.tagName.toLowerCase()
@@ -134,7 +134,7 @@ const AnalyticsContent = () => {
         
         if (tagName === 'a' || tagName === 'button' || hasTrackAttribute) {
           trackableElement = currentElement
-          componentId = currentElement.id || currentElement.getAttribute('data-track') || tagName
+          // componentId = currentElement.id || currentElement.getAttribute('data-track') || tagName
         }
         
         currentElement = currentElement.parentElement
