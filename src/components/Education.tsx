@@ -7,19 +7,19 @@ import DownloadButton from './DownloadButton'
 const educationData = [
   {
     institution: 'Azerbaijan State University of Economics • UNEC',
-    degree: "Master's degree",
+    degree: "Master's degree •",
     field: 'Artificial Intelligence',
     period: 'Sep 2024 - Jul 2026'
   },
+  // {
+  //   institution: 'SABAH groups',
+  //   degree: "Bachelor's degree",
+  //   field: 'Petroleum Engineering',
+  //   period: '2018 - 2021'
+  // },
   {
-    institution: 'SABAH groups',
-    degree: "Bachelor's degree",
-    field: 'Petroleum Engineering',
-    period: '2018 - 2021'
-  },
-  {
-    institution: 'Azerbaijan State Oil and Industry University • ASOIU',
-    degree: "Bachelor's degree",
+    institution: 'Azerbaijan State Oil and Industry University • ASOIU • SABAH Groups',
+    degree: "Bachelor's degree •",
     field: 'Petroleum Engineering',
     period: '2017 - 2021'
   },
@@ -179,7 +179,7 @@ const EducationItem = ({ institution, degree, field, period, index }: EducationI
       className="bg-white rounded-lg shadow-md p-4 md:p-6"
     >
       <h4 className="text-base md:text-lg font-bold mb-1">{institution}</h4>
-      <p className="text-primary font-medium text-sm md:text-base">{degree} • {field}</p>
+      <p className="text-primary font-medium text-sm md:text-base">{degree} {field}</p>
       <p className="text-gray-600 text-xs md:text-sm mt-2">{period}</p>
     </motion.div>
   )
