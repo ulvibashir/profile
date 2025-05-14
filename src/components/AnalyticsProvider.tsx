@@ -37,51 +37,51 @@ const AnalyticsContent = () => {
 
   // Track page view
   const trackPageView = useCallback(async () => {
-    const { sessionId, visitorId } = getSessionData()
+    // const { sessionId, visitorId } = getSessionData()
     
     try {
       // Get UTM parameters
-      const utmSource = searchParams.get('utm_source') || undefined
-      const utmMedium = searchParams.get('utm_medium') || undefined
-      const utmCampaign = searchParams.get('utm_campaign') || undefined
-      const utmTerm = searchParams.get('utm_term') || undefined
-      const utmContent = searchParams.get('utm_content') || undefined
+      // const utmSource = searchParams.get('utm_source') || undefined
+      // const utmMedium = searchParams.get('utm_medium') || undefined
+      // const utmCampaign = searchParams.get('utm_campaign') || undefined
+      // const utmTerm = searchParams.get('utm_term') || undefined
+      // const utmContent = searchParams.get('utm_content') || undefined
       
       // Get page title
-      const pageTitle = document.title
+      // const pageTitle = document.title
 
       // Get referrer
-      const referrer = document.referrer
+      // const referrer = document.referrer
       
       // Get screen resolution
-      const screenResolution = `${window.screen.width}x${window.screen.height}`
+      // const screenResolution = `${window.screen.width}x${window.screen.height}`
       
       // Get language
-      const language = navigator.language
+      // const language = navigator.language
       
       // Send data to the API endpoint
-      await fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessionId,
-          visitorId,
-          eventType: 'pageview',
-          pagePath: pathname,
-          pageTitle,
-          referrer,
-          utmSource,
-          utmMedium,
-          utmCampaign,
-          utmTerm,
-          utmContent,
-          userAgent: navigator.userAgent,
-          screenResolution,
-          language,
-        }),
-      })
+      // await fetch('/api/analytics/track', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     sessionId,
+      //     visitorId,
+      //     eventType: 'pageview',
+      //     pagePath: pathname,
+      //     pageTitle,
+      //     referrer,
+      //     utmSource,
+      //     utmMedium,
+      //     utmCampaign,
+      //     utmTerm,
+      //     utmContent,
+      //     userAgent: navigator.userAgent,
+      //     screenResolution,
+      //     language,
+      //   }),
+      // })
       
       setHasTrackedPageView(true)
     } catch (error) {
@@ -93,23 +93,23 @@ const AnalyticsContent = () => {
   const trackPageExit = useCallback(async () => {
     if (!hasTrackedPageView) return
     
-    const { sessionId } = getSessionData()
-    const durationMs = Date.now() - pageLoadTime
+    // const { sessionId } = getSessionData()
+    // const durationMs = Date.now() - pageLoadTime
     
     try {
-      await fetch('/api/analytics/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          sessionId,
-          eventType: 'page_exit',
-          pagePath: pathname,
-          pageTitle: document.title,
-          durationMs,
-        }),
-      })
+      // await fetch('/api/analytics/track', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     sessionId,
+      //     eventType: 'page_exit',
+      //     pagePath: pathname,
+      //     pageTitle: document.title,
+      //     durationMs,
+      //   }),
+      // })
     } catch (error) {
       console.error('Error tracking page exit:', error)
     }
@@ -153,22 +153,22 @@ const AnalyticsContent = () => {
         eventValue = trackableElement.textContent?.trim() || ''
       }
       
-      const { sessionId } = getSessionData()
+      // const { sessionId } = getSessionData()
       
       try {
-        await fetch('/api/analytics/track', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            sessionId,
-            eventType: 'click',
-            pagePath: pathname,
-            componentId,
-            eventValue,
-          }),
-        })
+        // await fetch('/api/analytics/track', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   body: JSON.stringify({
+        //     sessionId,
+        //     eventType: 'click',
+        //     pagePath: pathname,
+        //     componentId,
+        //     eventValue,
+        //   }),
+        // })
       } catch (error) {
         console.error('Error tracking click:', error)
       }
