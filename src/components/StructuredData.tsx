@@ -5,7 +5,7 @@ export function PersonStructuredData() {
     '@type': 'Person',
     name: 'Ulvi Bashirov',
     description: 'Senior iOS Engineer specializing in Swift, UIKit, SwiftUI, and scalable fintech app development',
-    url: 'https://ulvi.dev',
+    url: 'https://wwww.ulvi-bashirov.com',
     jobTitle: 'Senior iOS Engineer',
     worksFor: {
       '@type': 'Organization',
@@ -18,7 +18,7 @@ export function PersonStructuredData() {
       },
       {
         '@type': 'CollegeOrUniversity',
-        name: 'Mingachevir State University',
+        name: 'UNEC',
       },
     ],
     hasCredential: {
@@ -49,7 +49,7 @@ export function PersonStructuredData() {
       'Scrum',
       'Mobile Application Development'
     ],
-    email: 'mailto:ulvi@bashirov.dev',
+    email: 'mailto:contact@ulvi-bashirov@com',
   };
 
   return (
@@ -94,7 +94,7 @@ export function ProjectStructuredData({
     author: {
       '@type': 'Person',
       name: author,
-      url: 'https://ismat.pro'
+      url: 'https://www.ulvi-bashirov.com'
     },
     programmingLanguage: {
       '@type': 'ComputerLanguage',
@@ -102,7 +102,7 @@ export function ProjectStructuredData({
     },
     codeRepository: url,
     codeSampleType: 'full',
-    applicationCategory: 'Machine Learning',
+    applicationCategory: 'Senior iOS Engineer',
   };
 
   return (
@@ -121,13 +121,13 @@ export function WebsiteStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Ulvi Bashirov | iOS Engineer & Instructor',
-    url: 'https://ismat.pro',
+    url: 'https://www.ulvi-bashirov.com',
     description: 'Professional portfolio of Ulvi Bashirov, a Senior iOS Engineer specializing in Swift, UIKit, and scalable fintech app development',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://ismat.pro/search?q={search_term_string}'
+        urlTemplate: 'https://www.ulvi-bashirov.com/search?q={search_term_string}'
       },
       'query-input': 'required name=search_term_string'
     }
@@ -168,11 +168,11 @@ export function MachineLearningSoftwareSchema({
     programmingLanguage: technologies,
     author: {
       '@type': 'Person',
-      name: 'Ismat Samadov',
-      url: 'https://ismat.pro'
+      name: 'Ulvi Bashirov',
+      url: 'https://www.ulvi-bashirov.com'
     },
     keywords: [...technologies, ...datasets, 'machine learning', 'AI', 'data analysis'],
-    applicationCategory: 'Machine Learning',
+    applicationCategory: 'Senior iOS Engineer',
     additionalProperty: [
       {
         '@type': 'PropertyValue',

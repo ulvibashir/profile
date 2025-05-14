@@ -187,11 +187,11 @@ export function generatePageMetadata({
  */
 export const defaultMetadata: Metadata = {
   title: {
-    template: '%s | Ismat Samadov',
+    template: '%s | Ulvi Bashirov',
     default: 'Ulvi Bashirov | iOS Engineer & Instructor',
   },
-  description: 'Professional portfolio of Ismat Samadov, a Machine Learning Engineer & Analytics Professional specializing in deep learning, predictive modeling, and building end-to-end ML solutions. Expertise in SQL, data analysis, and machine learning applications.',
-  metadataBase: new URL('https://ismat.pro'),
+  description: 'Professional portfolio of Ulvi Bashirov, a Senior iOS Engineer specializing in Swift, UIKit, and scalable fintech app development',
+  metadataBase: new URL('https://www.ulvi-bashirov.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -206,8 +206,8 @@ export const defaultMetadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     images: ['/og-image.jpg'],
-    creator: '@IsmatSamadov',
-    site: '@IsmatSamadov',
+    creator: '@@ulvibashir',
+    site: '@ulvibashir',
   },
   icons: {
     icon: [
