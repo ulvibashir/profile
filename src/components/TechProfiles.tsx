@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaGithub, FaKaggle, FaLinkedin } from 'react-icons/fa'
-import { SiHackerrank, SiLeetcode, SiHuggingface, SiMedium } from 'react-icons/si'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { SiHackerrank, SiLeetcode } from 'react-icons/si'
 
 const profilesData = [
   {

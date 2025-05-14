@@ -22,7 +22,7 @@ const DownloadButton = ({
   // Function to track download events
   const trackDownload = useCallback(async () => {
     try {
-      const fileName = filePath.split('/').pop() || 'unknown-file'
+      // const fileName = filePath.split('/').pop() || 'unknown-file'
       
       // Track the download event
       // await fetch('/api/analytics/track', {
