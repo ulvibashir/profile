@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+
+/* HIDDEN - contact form (re-enable when needed)
+import { useState } from 'react'
 import { FaExclamationTriangle } from 'react-icons/fa'
 
 interface FormData {
@@ -16,8 +18,10 @@ interface FormErrors {
   email?: string;
   message?: string;
 }
+*/
 
 const Contact = () => {
+  /* HIDDEN - contact form state & handlers (re-enable when needed)
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -33,7 +37,6 @@ const Contact = () => {
     const newErrors: FormErrors = {}
     let isValid = true
 
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required'
       isValid = false
@@ -42,7 +45,6 @@ const Contact = () => {
       isValid = false
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
@@ -52,7 +54,6 @@ const Contact = () => {
       isValid = false
     }
 
-    // Message validation
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required'
       isValid = false
@@ -68,8 +69,6 @@ const Contact = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    
-    // Clear error for this field when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }))
     }
@@ -77,62 +76,62 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Validate form before submission
-    if (!validateForm()) {
-      return
-    }
-    
+    if (!validateForm()) return
     setIsSubmitting(true)
     setError('')
-    
     try {
-      // Send the data to our API endpoint
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      
       const data = await response.json()
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit message')
-      }
-      
-      // Clear form and show success
+      if (!response.ok) throw new Error(data.error || 'Failed to submit message')
       setFormData({ name: '', email: '', message: '' })
       setSuccessMessage("Your message has been sent successfully! I'll get back to you soon.")
       setIsSubmitted(true)
-      setTimeout(() => {
-        setIsSubmitted(false)
-      }, 5000)
+      setTimeout(() => { setIsSubmitted(false) }, 5000)
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message)
       } else {
         setError('Something went wrong. Please try again later.')
       }
-      
-      // Fallback message if the API fails
-      setSuccessMessage(
-        "While there was an issue with our contact system, " +
-        "you can reach me directly at contact@ulvi.bashirov.com"
-      )
+      setSuccessMessage("While there was an issue with our contact system, you can reach me directly at ubashirov@outlook.com")
       setIsSubmitted(true)
-      
       console.error('Error submitting form:', err)
     } finally {
       setIsSubmitting(false)
     }
   }
+  */
 
   return (
     <section id="contact" className="py-16 md:py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-xl mx-auto text-center"
+        >
+          <p className="text-gray-700 text-base sm:text-lg mb-4">
+            Feel free to reach out if you&apos;re looking for a professional iOS engineer with expertise in Swift and UIKit.
+            I&apos;m open to new opportunities, collaborations, or freelance projects.
+          </p>
+          <a
+            href="mailto:ubashirov@outlook.com"
+            className="text-primary font-semibold text-lg hover:underline"
+          >
+            ubashirov@outlook.com
+          </a>
+        </motion.div>
+      </div>
+
+      {/* HIDDEN - contact form UI (re-enable when needed)
+      <div className="container mx-auto px-4">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -140,107 +139,17 @@ const Contact = () => {
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-primary text-center mb-8 md:mb-12">Get In Touch</h2>
-          
           <div className="max-w-md mx-auto">
             <div>
               <h3 className="text-xl font-bold mb-4 md:mb-6">Send a Message</h3>
-              
-              <p className="text-gray-700 text-sm sm:text-base mb-6">
-                Feel free to reach out if you&apos;re looking for a professional iOS engineer with expertise in Swift, UIKit. 
-                I&apos;m open to new opportunities, collaborations, or freelance projects.
-              </p>
-              
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
-                      <FaExclamationTriangle className="mr-1" size={12} />
-                      {errors.name}
-                    </p>
-                  )}
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
-                      <FaExclamationTriangle className="mr-1" size={12} />
-                      {errors.email}
-                    </p>
-                  )}
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent ${
-                      errors.message ? 'border-red-500' : 'border-gray-300'
-                    }`}
-                  />
-                  {errors.message && (
-                    <p className="text-red-500 text-xs sm:text-sm mt-1 flex items-center">
-                      <FaExclamationTriangle className="mr-1" size={12} />
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
-                
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary text-white font-medium py-3 px-6 rounded-md shadow-md hover:bg-blue-600 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-                
-                {error && !isSubmitted && (
-                  <div className="bg-red-100 border border-red-400 text-red-700 px-3 py-2 rounded text-sm">
-                    {error}
-                  </div>
-                )}
-                
-                {isSubmitted && (
-                  <div className="bg-green-100 border border-green-400 text-green-700 px-3 py-2 rounded text-sm">
-                    {successMessage}
-                  </div>
-                )}
+                ... form fields ...
               </form>
             </div>
           </div>
         </motion.div>
       </div>
+      */}
     </section>
   )
 }
